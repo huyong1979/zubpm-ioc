@@ -6,7 +6,7 @@ record(stringin, "$(P){BPM:$(NO)}FA:Hdr:Buff-Wfm:T") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:Hdr:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 0 40")
+    field(INP , "@psc$(NO) 55 0 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -14,7 +14,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:Hdr:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:Cnt:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 4 40")
+    field(INP , "@psc$(NO) 55 4 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -22,7 +22,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:Cnt:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:A:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 8 40")
+    field(INP , "@psc$(NO) 55 8 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -31,7 +31,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:A:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:B:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 12 40")
+    field(INP , "@psc$(NO) 55 12 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -39,7 +39,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:B:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:C:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 16 40")
+    field(INP , "@psc$(NO) 55 16 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -47,7 +47,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:C:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:D:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 20 40")
+    field(INP , "@psc$(NO) 55 20 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -55,7 +55,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:D:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:RSVD:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 24 40")
+    field(INP , "@psc$(NO) 55 24 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -63,7 +63,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:RSVD:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:S:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 28 40")
+    field(INP , "@psc$(NO) 55 28 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -71,7 +71,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:S:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:X:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 32 40")
+    field(INP , "@psc$(NO) 55 32 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -79,7 +79,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:X:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:Y:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 36 40")
+    field(INP , "@psc$(NO) 55 36 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -88,7 +88,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:Y:Buff-Wfm") {
 record(longin, "$(P){BPM:$(NO)}DMA:FALen-I") {
     field(DESC, "FA Samples Per Trigger")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 80")
+    field(INP , "@psc$(NO) 30 80")
     field(SCAN,"I/O Intr")
     field(EGU,  "Samples")
 }
@@ -96,7 +96,7 @@ record(longin, "$(P){BPM:$(NO)}DMA:FALen-I") {
 record(bi, "$(P){BPM:$(NO)}DMA:FAbusy-I") {
     field(DESC, "DMA FA Active")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 92")
+    field(INP , "@psc$(NO) 30 92")
     field(MASK, "0x1")
     field(SCAN,"I/O Intr")
     field(ZNAM,"Rdy")
@@ -106,7 +106,7 @@ record(bi, "$(P){BPM:$(NO)}DMA:FAbusy-I") {
 record(longout, "$(P){BPM:$(NO)}DMA:FALen-SP") {
     field(DESC, "Number of FA samples per trigger")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 64")
+    field(OUT , "@psc$(NO) 1 64")
     field(HOPR,"100000")
     field(LOPR,"100")
     field(PINI, "YES")

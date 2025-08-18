@@ -1,40 +1,9 @@
-#############################################################
-#
-#       BPM Database for pscDrv IOC
-#       10/31/2013
-#       0303/2015 update
-#
-#############################################################
-
-
-record(bo, "$(P){BPM:$(NO)}wfm-RECONNECT") {
-    field(DTYP, "PSC Ctrl Reconnect")
-    field(OUT , "@aie_wfm_rx_$(NO)")
-    field(ZNAM, "Wfm Reconnect")
-    field(ONAM, "Wfm Reconnect")
-}
-
-
-record(bo, "$(P){BPM:$(NO)}TX-RECONNECT") {
-    field(DTYP, "PSC Ctrl Reconnect")
-    field(OUT , "@aie_tx_$(NO)")
-    field(ZNAM, "Ctrl Reconnect")
-    field(ONAM, "Ctrl Reconnect")
-}
-
-record(bo, "$(P){BPM:$(NO)}RX10Hz-RECONNECT") {
-    field(DTYP, "PSC Ctrl Reconnect")
-    field(OUT , "@Rx$(NO)")
-    field(ZNAM, "10Hz Rx Reconnect")
-    field(ONAM, "10Hz Rx Reconnect")
-}
-
 
 
 # Flush reg to socket buffer, trigger send to send all socket buffer to PSC 
 record(bo, "$(P){BPM:$(NO)}send") { 
     field(DTYP, "PSC Ctrl Send All") 
-    field(OUT , "@aie_tx_$(NO)") 
+    field(OUT , "@psc$(NO)") 
     field(ZNAM, "Send") 
     field(ONAM, "Send") 
 } 
@@ -42,8 +11,8 @@ record(bo, "$(P){BPM:$(NO)}send") {
 # Write a single register
 record(longout, "$(P){BPM:$(NO)}GoRegSingleWrite") {
     field(DTYP, "PSC Ctrl Send")
-    field(OUT , "@aie_tx_$(NO)")
-    field(VAL , "1") 
+    field(OUT , "@psc$(NO)")
+    field(VAL , "0") 
     field(FLNK, "$(P){BPM:$(NO)}send")
 }
 
@@ -51,10 +20,20 @@ record(longout, "$(P){BPM:$(NO)}GoRegSingleWrite") {
 ############# Control PV's ##########################################
 
 
+record(bo, "$(P){BPM:$(NO)}KeepAlive-SP") {
+    field(DESC, "Keeps the socket active")
+    field(DTYP, "PSC Single U32")
+    field(OUT , "@psc$(NO) 5 100")
+    field(SCAN, "1 second")
+    field(FLNK, "$(P){BPM:$(NO)}GoRegSingleWrite")
+}
+
+
+
 record(bo, "$(P){BPM:$(NO)}Trig:Strig-SP") {
     field(DESC, "Soft Trigger by user")
     field(DTYP, "PSC Single U32")
-    field(OUT , "@aie_tx_$(NO) 1 0")
+    field(OUT , "@psc$(NO) 1 0")
     field(ZNAM,"Rdy")
     field(ONAM,"Trig")
     field(FLNK, "$(P){BPM:$(NO)}GoRegSingleWrite")
@@ -64,7 +43,7 @@ record(bo, "$(P){BPM:$(NO)}Trig:Strig-SP") {
 record(bo, "$(P){BPM:$(NO)}Trig:TrigSrc-SP") {
     field(DESC, "Trigger source")
     field(DTYP, "PSC Single U32")
-    field(OUT , "@aie_tx_$(NO) 1 52")
+    field(OUT , "@psc$(NO) 1 52")
     field(ZNAM,"EXT")
     field(ONAM,"INT")
     info(autosaveFields, "VAL")
@@ -74,7 +53,7 @@ record(bo, "$(P){BPM:$(NO)}Trig:TrigSrc-SP") {
 record(bo, "$(P){BPM:$(NO)}CLK:EventSrc-SP") {
     field(DESC, "Event Source Select")
     field(DTYP, "PSC Single U32")
-    field(OUT , "@aie_tx_$(NO) 1 36")
+    field(OUT , "@psc$(NO) 1 36")
     field(ZNAM,"INT")
     field(ONAM,"EVR")
     info(autosaveFields, "VAL")
@@ -85,7 +64,7 @@ record(bo, "$(P){BPM:$(NO)}CLK:EventSrc-SP") {
 record(mbbo, "$(P){BPM:$(NO)}Loc:Machine-SP") {
     field(DESC, "Machine select")
     field(DTYP, "PSC Single U32")
-    field(OUT , "@aie_tx_$(NO) 1 76")
+    field(OUT , "@psc$(NO) 1 76")
     #field( PINI, "YES")
     field( ZRST, "Reserved")
     field( ONST, "Linac")
@@ -108,7 +87,7 @@ record(mbbo, "$(P){BPM:$(NO)}Loc:Machine-SP") {
 record(longout, "$(P){BPM:$(NO)}Gain:RfAtte-SP") {
     field(DESC, "RF Input Attenuator Control")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 132")
+    field(OUT , "@psc$(NO) 1 132")
     field(HOPR,"31")
     field(LOPR,"0")
     field(DRVH,"31")
@@ -126,7 +105,7 @@ record(longout, "$(P){BPM:$(NO)}Gain:RfAtte-SP") {
 record(longout, "$(P){BPM:$(NO)}Pos:Kx-SP") {
     field(DESC, "Kx value in nanometers")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 144")
+    field(OUT , "@psc$(NO) 1 144")
     field(HOPR,"25000000")
     field(LOPR,"-25000000")
     field(DRVH,"25000000")
@@ -138,7 +117,7 @@ record(longout, "$(P){BPM:$(NO)}Pos:Kx-SP") {
 record(longout, "$(P){BPM:$(NO)}Pos:Ky-SP") {
     field(DESC, "Ky value")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 148")
+    field(OUT , "@psc$(NO) 1 148")
     field(HOPR,"25000000")
     field(LOPR,"-25000000")
     field(DRVH,"25000000")
@@ -152,7 +131,7 @@ record(longout, "$(P){BPM:$(NO)}Pos:Ky-SP") {
 record(longout, "$(P){BPM:$(NO)}Pos:BbaXOff-SP") {
     field(DESC, "BBA X Offset in nanometers")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 152")
+    field(OUT , "@psc$(NO) 1 152")
     field(HOPR,"25000000")
     field(LOPR,"-250000000")
     field(DRVH,"25000000")
@@ -166,7 +145,7 @@ record(longout, "$(P){BPM:$(NO)}Pos:BbaXOff-SP") {
 record(longout, "$(P){BPM:$(NO)}Pos:BbaYOff-SP") {
     field(DESC, "BBA Y Offset")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 156")
+    field(OUT , "@psc$(NO) 1 156")
     field(HOPR,"25000000")
     field(LOPR,"-25000000")
     field(DRVH,"25000000")
@@ -187,7 +166,7 @@ record(ao, "$(P){BPM:$(NO)}Gain:Adc0-SP") {
     field(VAL, "32767")
     field(LINR,"LINEAR")
     info(autosaveFields, "VAL")
-    field(OUT , "@aie_tx_$(NO) 1 160")
+    field(OUT , "@psc$(NO) 1 160")
     field(FLNK, "$(P){BPM:$(NO)}GoRegSingleWrite")
 }
 
@@ -203,7 +182,7 @@ record(ao, "$(P){BPM:$(NO)}Gain:Adc1-SP") {
     field(VAL, "32767")
     field(LINR,"LINEAR")
     info(autosaveFields, "VAL")
-    field(OUT , "@aie_tx_$(NO) 1 164")
+    field(OUT , "@psc$(NO) 1 164")
     field(FLNK, "$(P){BPM:$(NO)}GoRegSingleWrite")
 }
 
@@ -219,7 +198,7 @@ record(ao, "$(P){BPM:$(NO)}Gain:Adc2-SP") {
     field(VAL, "32767")
     field(LINR,"LINEAR")
     info(autosaveFields, "VAL")
-    field(OUT , "@aie_tx_$(NO) 1 168")
+    field(OUT , "@psc$(NO) 1 168")
     field(FLNK, "$(P){BPM:$(NO)}GoRegSingleWrite")
 }
 
@@ -235,14 +214,14 @@ record(ao, "$(P){BPM:$(NO)}Gain:Adc3-SP") {
     field(VAL, "1.0")
     field(LINR,"LINEAR")
     info(autosaveFields, "VAL")
-    field(OUT , "@aie_tx_$(NO) 1 172")
+    field(OUT , "@psc$(NO) 1 172")
     field(FLNK, "$(P){BPM:$(NO)}GoRegSingleWrite")
 }
 
 record(longout, "$(P){BPM:$(NO)}Tbt:GateDly-SP") {
     field(DESC, "TBT Gate Delay")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 192")
+    field(OUT , "@psc$(NO) 1 192")
     field(HOPR,"310")
     field(LOPR,"0")
     field(EGU, "Turns")
@@ -255,7 +234,7 @@ record(longout, "$(P){BPM:$(NO)}Tbt:GateDly-SP") {
 record(longout, "$(P){BPM:$(NO)}Trig:AdcDelay-SP") {
     field(DESC, "LI/LTB Adc delay for NPI write")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 272")
+    field(OUT , "@psc$(NO) 1 272")
     field(HOPR, "120000000")
     field(DRVH, "120000000")
     field(LOPR, "1")
@@ -269,7 +248,7 @@ record(longout, "$(P){BPM:$(NO)}Trig:AdcDelay-SP") {
 record(longout, "$(P){BPM:$(NO)}Trig:TrigtoBeamThresh-SP") {
     field(DESC, "Threshold for Trigger to Beam Dly search")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 276")
+    field(OUT , "@psc$(NO) 1 276")
     field(LOPR, "1")
     field(PINI, "YES")
     field(VAL, "0")
@@ -281,7 +260,7 @@ record(longout, "$(P){BPM:$(NO)}Trig:TrigtoBeamThresh-SP") {
 record(longout, "$(P){BPM:$(NO)}EVR:EventNo-SP") {
     field(DESC, "Trig 0 Event code set")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 320")
+    field(OUT , "@psc$(NO) 1 320")
     field(HOPR,"254")
     field(LOPR,"1")
     field(PINI, "YES")
@@ -296,7 +275,7 @@ record(longout, "$(P){BPM:$(NO)}EVR:EventNo-SP") {
 record(bi, "$(P){BPM:$(NO)}DMA:Busy-I") {
     field(DESC, "DMA Process Busy")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 96")
+    field(INP , "@psc$(NO) 30 96")
     field(MASK, "0x1")
     field(SCAN,"I/O Intr")
     field(ZNAM,"Busy")
@@ -310,7 +289,7 @@ record(bi, "$(P){BPM:$(NO)}DMA:Busy-I") {
 record(bi, "$(P){BPM:$(NO)}Alarm:PLL-I") {
     field(DESC, "PLL Status")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 0")
+    field(INP , "@psc$(NO) 30 0")
     field(MASK, "0x1")
     field(SCAN,"I/O Intr")
     field(ZNAM,"PLL FAIL")
@@ -322,7 +301,7 @@ record(bi, "$(P){BPM:$(NO)}Alarm:PLL-I") {
 record(longin, "$(P){BPM:$(NO)}Gain:RfAtte-I") {
     field(DESC, "RF Attenuator")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 20")
+    field(INP , "@psc$(NO) 30 20")
     field(SCAN,"I/O Intr")
     field(EGU,  "dB")
 }
@@ -330,7 +309,7 @@ record(longin, "$(P){BPM:$(NO)}Gain:RfAtte-I") {
 record(ai, "$(P){BPM:$(NO)}Pos:Kx-I") {
     field(DESC, "Kx read")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 24")
+    field(INP , "@psc$(NO) 30 24")
     field(SCAN,"I/O Intr")
 #    field(ASLO, "0.000001")
     field(PREC, "0")
@@ -340,7 +319,7 @@ record(ai, "$(P){BPM:$(NO)}Pos:Kx-I") {
 record(ai, "$(P){BPM:$(NO)}Pos:Ky-I") {
     field(DESC, "Ky read")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 28")
+    field(INP , "@psc$(NO) 30 28")
     field(SCAN,"I/O Intr")
 #    field(ASLO, "0.000001")
     field(PREC, "0")
@@ -350,7 +329,7 @@ record(ai, "$(P){BPM:$(NO)}Pos:Ky-I") {
 record(ai, "$(P){BPM:$(NO)}Pos:BbaXOff-I") {
     field(DESC, "BBA x read")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 32")
+    field(INP , "@psc$(NO) 30 32")
     field(SCAN,"I/O Intr")
 #    field(ASLO, "0.000001")
     field(PREC, "0")
@@ -360,7 +339,7 @@ record(ai, "$(P){BPM:$(NO)}Pos:BbaXOff-I") {
 record(ai, "$(P){BPM:$(NO)}Pos:BbaYOff-I") {
     field(DESC, "BBA y read")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 36")
+    field(INP , "@psc$(NO) 30 36")
     field(SCAN,"I/O Intr")
 #    field(ASLO, "0.000001")
     field(PREC, "0")
@@ -370,7 +349,7 @@ record(ai, "$(P){BPM:$(NO)}Pos:BbaYOff-I") {
 record(longin, "$(P){BPM:$(NO)}Trig:TsSec-I") {
     field(DESC, "DDR trig Ts sec")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 40")
+    field(INP , "@psc$(NO) 30 40")
     field(SCAN,"I/O Intr")
     field(EGU,  "sec")      
 }
@@ -378,7 +357,7 @@ record(longin, "$(P){BPM:$(NO)}Trig:TsSec-I") {
 record(longin, "$(P){BPM:$(NO)}Trig:TsNsec-I") {
     field(DESC, "DDR trig Ts offset")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 44")
+    field(INP , "@psc$(NO) 30 44")
     field(SCAN,"I/O Intr")
     field(EGU,  "nsec")     
 }
@@ -391,14 +370,14 @@ record(stringout, "$(P){BPM:$(NO)}EVR:TrigDate-I"){
 record(longin, "$(P){BPM:$(NO)}EVR:EventNo-I") {
     field(DESC, "event code read")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 48")
+    field(INP , "@psc$(NO) 30 48")
     field(SCAN,"I/O Intr")
 }
 
 record(longin, "$(P){BPM:$(NO)}EVR:Trig:Cnt-I") {
     field(DESC, "EVR Trigger Count")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 52")
+    field(INP , "@psc$(NO) 30 52")
     field(SCAN,"I/O Intr")
     field(EGU,  "msec")
 #    field(FLNK, "$(P){BPM:$(NO)}FA-Sub")
@@ -407,7 +386,7 @@ record(longin, "$(P){BPM:$(NO)}EVR:Trig:Cnt-I") {
 record(longin, "$(P){BPM:$(NO)}Trig:AdcDelay-I") {
     field(DESC, "Adc trig Delay")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 56")
+    field(INP , "@psc$(NO) 30 56")
     field(SCAN,"I/O Intr")
     field(EGU,  "")
 }
@@ -415,7 +394,7 @@ record(longin, "$(P){BPM:$(NO)}Trig:AdcDelay-I") {
 record(longin, "$(P){BPM:$(NO)}Tbt:GateDly-I") {
     field(DESC, "Geo Delay")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 60")
+    field(INP , "@psc$(NO) 30 60")
     field(SCAN,"I/O Intr")
     field(EGU,  "")
 }
@@ -423,7 +402,7 @@ record(longin, "$(P){BPM:$(NO)}Tbt:GateDly-I") {
 record(longin, "$(P){BPM:$(NO)}Trig:TrigtoBeamThresh-I") {
     field(DESC, "Trigger to Beam Threshold readback")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 64")
+    field(INP , "@psc$(NO) 30 64")
     field(SCAN,"I/O Intr")
     field(EGU,  "")
 }
@@ -431,7 +410,7 @@ record(longin, "$(P){BPM:$(NO)}Trig:TrigtoBeamThresh-I") {
 record(longin, "$(P){BPM:$(NO)}Trig:TrigtoBeamDly-I") {
     field(DESC, "Measured delay from Trigger to Beam")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 68")
+    field(INP , "@psc$(NO) 30 68")
     field(SCAN,"I/O Intr")
     field(EGU,  "")
 }
@@ -441,7 +420,7 @@ record(longin, "$(P){BPM:$(NO)}Trig:TrigtoBeamDly-I") {
 record(longin, "$(P){BPM:$(NO)}Fpga:FwVer-I") {
     field(DESC, "Firmware Version")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 32 0")
+    field(INP , "@psc$(NO) 32 0")
     field(SCAN,"I/O Intr")
     field(EGU,  "Ver")
 }
@@ -449,7 +428,7 @@ record(longin, "$(P){BPM:$(NO)}Fpga:FwVer-I") {
 record(longin, "$(P){BPM:$(NO)}Sys:Uptime-I") {
     field(DESC, "System Uptime in sec")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 32 32")
+    field(INP , "@psc$(NO) 32 32")
     field(SCAN,"I/O Intr")
     field(EGU,  "sec")
 }
@@ -458,7 +437,7 @@ record(longin, "$(P){BPM:$(NO)}Sys:Uptime-I") {
 
 record(stringin, "$(P){BPM:$(NO)}EE:Note-I") {
     field(DTYP, "PSC Block")
-    field(INP , "@aie_wfm_rx_$(NO) 32 30")
+    field(INP , "@psc$(NO) 32 30")
     field(SCAN, "I/O Intr")
 }
 
@@ -467,7 +446,7 @@ record(stringin, "$(P){BPM:$(NO)}EE:Note-I") {
 record(longout, "$(P){BPM:$(NO)}RFSW:Enable-SP") {
     field(DESC, "RF Switching Enable")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 400")
+    field(OUT , "@psc$(NO) 1 400")
     field(HOPR,"2")
     field(LOPR,"0")
     field(PINI, "YES")
@@ -479,7 +458,7 @@ record(longout, "$(P){BPM:$(NO)}RFSW:Enable-SP") {
 record(longout, "$(P){BPM:$(NO)}RFSW:TrigDly-SP") {
     field(DESC, "RF Switch: SR Turn Delay")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 404")
+    field(OUT , "@psc$(NO) 1 404")
     field(HOPR,"310")
     field(LOPR,"0")
     field(PINI, "YES")
@@ -491,7 +470,7 @@ record(longout, "$(P){BPM:$(NO)}RFSW:TrigDly-SP") {
 record(longout, "$(P){BPM:$(NO)}RFSW:DeMuxDly-SP") {
     field(DESC, "RF Switch: De-Switching Delay ")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 408")
+    field(OUT , "@psc$(NO) 1 408")
     field(HOPR,"310")
     field(LOPR,"0")
     field(PINI, "YES")
@@ -500,20 +479,6 @@ record(longout, "$(P){BPM:$(NO)}RFSW:DeMuxDly-SP") {
     field(FLNK, "$(P){BPM:$(NO)}GoRegSingleWrite")
 }
 
-### RMS Calculation ###################
 
-#record(compress, "$(P){BPM:$(NO)}Pos:CirBufX-I") {
-#    field(INP, "$(P){BPM:$(NO)}Pos:X-I CP NMS")
-#    field(ALG, "Circular Buffer")
-#    field(NSAM,"$(SAVG_NSAM)")
-#    field(FLNK, "$(P){BPM:$(NO)}Pos:XStd-I")
-#}
-
-#record(compress, "$(P){BPM:$(NO)}Pos:CirBufY-I") {
-#    field(INP, "$(P){BPM:$(NO)}Pos:Y-I CP NMS")
-#    field(ALG, "Circular Buffer")
-#    field(NSAM,"$(SAVG_NSAM)")
-    #field(FLNK, "$(P){BPM:$(NO)}Pos:YStd-I")
-#}
 
 

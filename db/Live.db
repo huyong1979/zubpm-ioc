@@ -7,7 +7,7 @@ record(stringin, "$(P){BPM:$(NO)}Live:ADC:A:Buff-Wfm:T") {
 record(waveform,"$(P){BPM:$(NO)}Live:ADC:A:Buff-Wfm") {
     field(DESC, "117 MHz ADC0 raw waveform")
     field(DTYP, "PSC Block I16 In")
-    field(INP , "@aie_wfm_rx_$(NO) 51 0 8")
+    field(INP , "@psc$(NO) 51 0 8")
     field(SCAN, "I/O Intr")
     field(FTVL, "DOUBLE")
     field(HOPR, "32768")
@@ -20,7 +20,7 @@ record(waveform,"$(P){BPM:$(NO)}Live:ADC:A:Buff-Wfm") {
 record(waveform,"$(P){BPM:$(NO)}Live:ADC:B:Buff-Wfm") {
     field(DESC, "117 MHz ADC1 raw waveform")
     field(DTYP, "PSC Block I16 In")
-    field(INP , "@aie_wfm_rx_$(NO) 51 2 8")
+    field(INP , "@psc$(NO) 51 2 8")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(HOPR, "32768")
@@ -33,7 +33,7 @@ record(waveform,"$(P){BPM:$(NO)}Live:ADC:B:Buff-Wfm") {
 record(waveform,"$(P){BPM:$(NO)}Live:ADC:C:Buff-Wfm") {
     field(DESC, "117 MHz ADC2 raw waveform")
     field(DTYP, "PSC Block I16 In")
-    field(INP , "@aie_wfm_rx_$(NO) 51 4 8")
+    field(INP , "@psc$(NO) 51 4 8")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(HOPR, "32768")
@@ -46,7 +46,7 @@ record(waveform,"$(P){BPM:$(NO)}Live:ADC:C:Buff-Wfm") {
 record(waveform,"$(P){BPM:$(NO)}Live:ADC:D:Buff-Wfm") {
     field(DESC, "117 MHz ADC3 raw waveform")
     field(DTYP, "PSC Block I16 In")
-    field(INP , "@aie_wfm_rx_$(NO) 51 6 8")
+    field(INP , "@psc$(NO) 51 6 8")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(HOPR, "32768")
@@ -58,7 +58,7 @@ record(waveform,"$(P){BPM:$(NO)}Live:ADC:D:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}Live:TBT:X:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 52 0 8")
+    field(INP , "@psc$(NO) 52 0 8")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TLIVE)")
@@ -67,7 +67,7 @@ record(waveform,"$(P){BPM:$(NO)}Live:TBT:X:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}Live:TBT:Y:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 52 4 8")
+    field(INP , "@psc$(NO) 52 4 8")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TLIVE)")

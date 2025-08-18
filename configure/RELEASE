@@ -33,8 +33,8 @@
 #SNCSEQ = $(MODULES)/seq-ver
 
 # EPICS_BASE should appear last so earlier modules can override stuff:
-PSCDRV = /home/diag/epics/pscdrv
-EPICS_BASE = /home/diag/epics/base
+# PSCDRV = /home/diag/epics/pscdrv
+# EPICS_BASE = /home/diag/epics/base
 
 # Set RULES here if you want to use build rules from somewhere
 # other than EPICS_BASE:

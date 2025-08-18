@@ -6,7 +6,7 @@ record(stringin, "$(P){BPM:$(NO)}TBT:Hdr:Buff-Wfm:T") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:Hdr:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 0 64")
+    field(INP , "@psc$(NO) 54 0 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -14,21 +14,21 @@ record(waveform,"$(P){BPM:$(NO)}TBT:Hdr:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:Cnt:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 4 64")
+    field(INP , "@psc$(NO) 54 4 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
 }
 record(waveform,"$(P){BPM:$(NO)}TBT:A:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 8 64")
+    field(INP , "@psc$(NO) 54 8 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
 }
 record(waveform,"$(P){BPM:$(NO)}TBT:Aphs:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 12 64")
+    field(INP , "@psc$(NO) 54 12 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -36,7 +36,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:Aphs:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:B:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 16 64")
+    field(INP , "@psc$(NO) 54 16 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -44,7 +44,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:B:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:Bphs:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 20 64")
+    field(INP , "@psc$(NO) 54 20 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -52,7 +52,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:Bphs:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:C:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 24 64")
+    field(INP , "@psc$(NO) 54 24 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -60,7 +60,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:C:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:Cphs:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 28 64")
+    field(INP , "@psc$(NO) 54 28 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -68,7 +68,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:Cphs:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:D:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 32 64")
+    field(INP , "@psc$(NO) 54 32 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -76,7 +76,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:D:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:Dphs:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 36 64")
+    field(INP , "@psc$(NO) 54 36 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -84,7 +84,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:Dphs:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:Xraw:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 40 64")
+    field(INP , "@psc$(NO) 54 40 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -92,7 +92,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:Xraw:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:Yraw:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 44 64")
+    field(INP , "@psc$(NO) 54 44 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -100,7 +100,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:Yraw:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:Rsvd:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 48 64")
+    field(INP , "@psc$(NO) 54 48 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -108,7 +108,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:Rsvd:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:S:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 52 64")
+    field(INP , "@psc$(NO) 54 52 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -116,7 +116,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:S:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:X:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 56 64")
+    field(INP , "@psc$(NO) 54 56 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -124,7 +124,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:X:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}TBT:Y:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 54 60 64")
+    field(INP , "@psc$(NO) 54 60 64")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(TBT_LEN)")
@@ -133,7 +133,7 @@ record(waveform,"$(P){BPM:$(NO)}TBT:Y:Buff-Wfm") {
 record(longin, "$(P){BPM:$(NO)}DMA:TBTLen-I") {
     field(DESC, "TBT Samples Per Trigger")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 76")
+    field(INP , "@psc$(NO) 30 76")
     field(SCAN,"I/O Intr")
     field(EGU,  "Samples")
 }
@@ -141,7 +141,7 @@ record(longin, "$(P){BPM:$(NO)}DMA:TBTLen-I") {
 record(bi, "$(P){BPM:$(NO)}DMA:TBTbusy-I") {
     field(DESC, "DMA TBT Active")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 88")
+    field(INP , "@psc$(NO) 30 88")
     field(MASK, "0x1")
     field(SCAN,"I/O Intr")
     field(ZNAM,"Rdy")
@@ -151,7 +151,7 @@ record(bi, "$(P){BPM:$(NO)}DMA:TBTbusy-I") {
 record(longout, "$(P){BPM:$(NO)}DMA:TBTLen-SP") {
     field(DESC, "Number of TBT samples per trigger")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 60")
+    field(OUT , "@psc$(NO) 1 60")
     field(HOPR,"100000")
     field(LOPR,"100")
     field(PINI, "YES")
