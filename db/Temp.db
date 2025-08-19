@@ -202,7 +202,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:PwrMgmt-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:D-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 32 328")
+    field(INP , "@psc$(NO) 33 0")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -220,7 +220,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:D-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:A-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 32 332")
+    field(INP , "@psc$(NO) 33 4")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -238,7 +238,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:A-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:C-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 32 336")
+    field(INP , "@psc$(NO) 33 8")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -256,7 +256,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:C-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:AC-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 32 340")
+    field(INP , "@psc$(NO) 33 12")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -274,7 +274,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:AC-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:BD-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 32 344")
+    field(INP , "@psc$(NO) 33 16")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -292,7 +292,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:BD-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:B-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 32 324")
+    field(INP , "@psc$(NO) 33 20")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")

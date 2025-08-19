@@ -60,6 +60,18 @@ record(bo, "$(P){BPM:$(NO)}CLK:EventSrc-SP") {
     field(FLNK, "$(P){BPM:$(NO)}GoRegSingleWrite")
 }
 
+record(bo, "$(P){BPM:$(NO)}FILT:DDC-LP-Sel-SP") {
+    field(DESC, "Event Source Select")
+    field(DTYP, "PSC Single U32")
+    field(OUT , "@psc$(NO) 1 68")
+    field(ZNAM,"4TAP")
+    field(ONAM,"100TAP")
+    info(autosaveFields, "VAL")
+    field(FLNK, "$(P){BPM:$(NO)}GoRegSingleWrite")
+}
+
+
+
 # Machine select
 record(mbbo, "$(P){BPM:$(NO)}Loc:Machine-SP") {
     field(DESC, "Machine select")
