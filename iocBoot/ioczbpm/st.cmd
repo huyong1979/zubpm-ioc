@@ -40,8 +40,10 @@ dbLoadRecords("../../db/SA.db", "P=$(IOCNAME), NO=2")
 dbLoadRecords("../../db/Power.db", "P=$(IOCNAME), NO=2")
 dbLoadRecords("../../db/Temp.db", "P=$(IOCNAME), NO=2")
 dbLoadRecords("../../db/FFT.db", "P=$(IOCNAME), NO=2")
+#dbLoadRecords("../../db/lstats.db", "P=$(IOCNAME), NO=2")
+
 #####################################################
-var(PSCDebug, 5)  #5 full debug
+var(PSCDebug, 2)  #5 full debug
 
 #bpm1 Create the PSC
 createPSC("psc2", $(ZBPM_IP), 3000, 0)

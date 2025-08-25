@@ -42,6 +42,9 @@ zbpm_SRCS += TBTselect.c
 zbpm_SRCS += ADCselect.c
 zbpm_SRCS += SAselect.c
 zbpm_SRCS += FFTcalc.c
+zbpm_SRCS += FAstat.c
+zbpm_SRCS += TBTstat.c
+zbpm_SRCS += SAstat.c
 
 # Build the main IOC entry point on workstation OSs.
 zbpm_SRCS_DEFAULT += zbpmMain.cpp

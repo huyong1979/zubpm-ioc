@@ -15,65 +15,29 @@
 #include <registryFunction.h>
 #include <epicsExport.h>
 
-#define PREFIX "lab-BI{BPM:2}"
 #define BUFMAX 100000
 #define SCALE 512.7435
 
 static int FAsub(aSubRecord *precord) {
 
-    static chid Apv,Bpv,Cpv,Dpv,Spv,Xpv,Ypv,Tpv,TSpv;
-    static int i,PVset=0,oldready=0,oldwfmLen=0,oldwfmOff=0;
+    static int i,oldready=0,oldwfmLen=0,oldwfmOff=0;
+
+    float Avg[10],Sig[10];
 
     int ready = *(int *)precord->l;
     int wfmLen = *(int *)precord->h;
     int wfmOff = *(int *)precord->i;
 
-    if((oldready==0 && ready==1) || oldwfmLen!=wfmLen || oldwfmOff!=wfmOff){ 
+    if((oldready==1 && ready==0) || oldwfmLen!=wfmLen || oldwfmOff!=wfmOff){ 
 
         time_t evrTime;
         struct tm ts;
-        char tmstr[80];
+        char tmstr[40];
 
         int tsec = *(int *)precord->k;
         evrTime = (time_t)tsec;
         ts = *localtime(&evrTime);
         strftime(tmstr,sizeof(tmstr), "%b %d %Y %H:%M:%S %Z", &ts);
-
-        printf("FA\n");
-        if(PVset==0){
-            char pvname[100];
-            ca_context_create(ca_enable_preemptive_callback);
-            strcpy(pvname,PREFIX);
-            strcat(pvname,"FA:A-Wfm");
-            ca_create_channel(pvname,NULL,NULL,0,&Apv);
-            strcpy(pvname,PREFIX);
-            strcat(pvname,"FA:B-Wfm");
-            ca_create_channel(pvname,NULL,NULL,0,&Bpv);
-            strcpy(pvname,PREFIX);
-            strcat(pvname,"FA:C-Wfm");
-            ca_create_channel(pvname,NULL,NULL,0,&Cpv);
-            strcpy(pvname,PREFIX);
-            strcat(pvname,"FA:D-Wfm");
-            ca_create_channel(pvname,NULL,NULL,0,&Dpv);
-            strcpy(pvname,PREFIX);
-            strcat(pvname,"FA:Sum-Wfm");
-            ca_create_channel(pvname,NULL,NULL,0,&Spv);
-            strcpy(pvname,PREFIX);
-            strcat(pvname,"FA:X-Wfm");
-            ca_create_channel(pvname,NULL,NULL,0,&Xpv);
-            strcpy(pvname,PREFIX);
-            strcat(pvname,"FA:Y-Wfm");
-            ca_create_channel(pvname,NULL,NULL,0,&Ypv);
-            strcpy(pvname,PREFIX);
-            strcat(pvname,"FA:Time-Wfm");
-            ca_create_channel(pvname,NULL,NULL,0,&Tpv);
-            strcpy(pvname,PREFIX);
-            strcat(pvname,"EVR:TrigDate-I");
-            ca_create_channel(pvname,NULL,NULL,0,&TSpv);
-            ca_pend_io(5);
-            PVset = 1;
-            printf("Initializing PVs...\n");
-        }
 
         int bufLen = *(int *)precord->j;
 
@@ -98,12 +62,9 @@ static int FAsub(aSubRecord *precord) {
         float Awfm[10000],Bwfm[10000],Cwfm[10000],Dwfm[10000];
         float Swfm[10000],Xwfm[10000],Ywfm[10000],Twfm[10000];
         double Asum=0,Bsum=0,Csum=0,Dsum=0,Ssum=0,Xsum=0,Ysum=0;
-        float Aavg,Bavg,Cavg,Davg,Xavg,Yavg,Savg;
-        float Asig,Bsig,Csig,Dsig,Xsig,Ysig,Ssig;
 
         for(i=wfmOff;i<(wfmLen+wfmOff);i++){
             Awfm[i-wfmOff] = Abuff[i]/SCALE;
-//            printf("Awfm[%d]=Abuff[%d]=%6.0f\n",(i-wfmOff),i,Abuff[i]/SCALE);
             Asum = Asum + Abuff[i]/SCALE;
             Bwfm[i-wfmOff] = Bbuff[i]/SCALE;
             Bsum = Bsum + Bbuff[i]/SCALE;
@@ -120,20 +81,13 @@ static int FAsub(aSubRecord *precord) {
             Twfm[i-wfmOff] = (i-wfmOff)*0.100384;  //Time in milliseconds
         }
 
-        Aavg = Asum/wfmLen;
-        Bavg = Bsum/wfmLen;
-        Cavg = Csum/wfmLen;
-        Davg = Dsum/wfmLen;
-        Savg = Ssum/wfmLen;
-        Xavg = Xsum/wfmLen;
-        Yavg = Ysum/wfmLen;
-        *(float *)precord->valc = Aavg;
-        *(float *)precord->vald = Bavg;
-        *(float *)precord->vale = Cavg;
-        *(float *)precord->valf = Davg;
-        *(float *)precord->valg = Savg;
-        *(float *)precord->valh = Xavg;
-        *(float *)precord->vali = Yavg;
+        Avg[0] = Asum/wfmLen;
+        Avg[1] = Bsum/wfmLen;
+        Avg[2] = Csum/wfmLen;
+        Avg[3] = Dsum/wfmLen;
+        Avg[4] = Ssum/wfmLen;
+        Avg[5] = Xsum/wfmLen;
+        Avg[6] = Ysum/wfmLen;
 
         Asum = 0;
         Bsum = 0;
@@ -143,40 +97,40 @@ static int FAsub(aSubRecord *precord) {
         Xsum = 0;
         Ysum = 0;
         for(i=0;i<wfmLen;i++){
-            Asum = Asum + (Awfm[i]-Aavg)*(Awfm[i]-Aavg);
-            Bsum = Bsum + (Bwfm[i]-Bavg)*(Bwfm[i]-Bavg);
-            Csum = Csum + (Cwfm[i]-Cavg)*(Cwfm[i]-Cavg);
-            Dsum = Dsum + (Dwfm[i]-Davg)*(Dwfm[i]-Davg);
-            Ssum = Ssum + (Swfm[i]-Savg)*(Swfm[i]-Savg);
-            Xsum = Xsum + (Xwfm[i]-Xavg)*(Xwfm[i]-Xavg);
-            Ysum = Ysum + (Ywfm[i]-Yavg)*(Ywfm[i]-Yavg);
+            Asum = Asum + (Awfm[i]-Avg[0])*(Awfm[i]-Avg[0]);
+            Bsum = Bsum + (Bwfm[i]-Avg[1])*(Bwfm[i]-Avg[1]);
+            Csum = Csum + (Cwfm[i]-Avg[2])*(Cwfm[i]-Avg[2]);
+            Dsum = Dsum + (Dwfm[i]-Avg[3])*(Dwfm[i]-Avg[3]);
+            Ssum = Ssum + (Swfm[i]-Avg[4])*(Swfm[i]-Avg[4]);
+            Xsum = Xsum + (Xwfm[i]-Avg[5])*(Xwfm[i]-Avg[5]);
+            Ysum = Ysum + (Ywfm[i]-Avg[6])*(Ywfm[i]-Avg[6]);
         }
-        Asig = sqrt(Asum/wfmLen);
-        Bsig = sqrt(Bsum/wfmLen);
-        Csig = sqrt(Csum/wfmLen);
-        Dsig = sqrt(Dsum/wfmLen);
-        Ssig = sqrt(Ssum/wfmLen);
-        Xsig = sqrt(Xsum/wfmLen);
-        Ysig = sqrt(Ysum/wfmLen);
-
-        *(float *)precord->valj = Asig;
-        *(float *)precord->valk = Bsig;
-        *(float *)precord->vall = Csig;
-        *(float *)precord->valm = Dsig;
-        *(float *)precord->valn = Ssig;
-        *(float *)precord->valo = Xsig;
-        *(float *)precord->valp = Ysig;
-
-        ca_array_put(DBR_FLOAT,wfmLen,Apv,Awfm);
-        ca_array_put(DBR_FLOAT,wfmLen,Bpv,Bwfm);
-        ca_array_put(DBR_FLOAT,wfmLen,Cpv,Cwfm);
-        ca_array_put(DBR_FLOAT,wfmLen,Dpv,Dwfm);
-        ca_array_put(DBR_FLOAT,wfmLen,Spv,Swfm);
-        ca_array_put(DBR_FLOAT,wfmLen,Xpv,Xwfm);
-        ca_array_put(DBR_FLOAT,wfmLen,Ypv,Ywfm);
-        ca_array_put(DBR_FLOAT,wfmLen,Tpv,Twfm);
-        ca_put(DBR_STRING,TSpv,(void *)&tmstr);
-        ca_pend_io(5);
+        Sig[0] = sqrt(Asum/wfmLen);
+        Sig[1] = sqrt(Bsum/wfmLen);
+        Sig[2] = sqrt(Csum/wfmLen);
+        Sig[3] = sqrt(Dsum/wfmLen);
+        Sig[4] = sqrt(Ssum/wfmLen);
+        Sig[5] = sqrt(Xsum/wfmLen);
+        Sig[6] = sqrt(Ysum/wfmLen);
+        precord->nevc = wfmLen;
+        precord->nevd = wfmLen;
+        precord->neve = wfmLen;
+        precord->nevf = wfmLen;
+        precord->nevg = wfmLen;
+        precord->nevh = wfmLen;
+        precord->nevi = wfmLen;
+        precord->nevj = wfmLen;
+        memcpy((float *)precord->valc,Awfm,wfmLen*sizeof(float));
+        memcpy((float *)precord->vald,Bwfm,wfmLen*sizeof(float));
+        memcpy((float *)precord->vale,Cwfm,wfmLen*sizeof(float));
+        memcpy((float *)precord->valf,Dwfm,wfmLen*sizeof(float));
+        memcpy((float *)precord->valg,Swfm,wfmLen*sizeof(float));
+        memcpy((float *)precord->valh,Xwfm,wfmLen*sizeof(float));
+        memcpy((float *)precord->vali,Ywfm,wfmLen*sizeof(float));
+        memcpy((float *)precord->valj,Twfm,wfmLen*sizeof(float));
+        memcpy((float *)precord->vall,Avg,10*sizeof(float));
+        memcpy((float *)precord->valm,Sig,10*sizeof(float));
+        memcpy((char *)precord->valk,tmstr,40*sizeof(char));
     }
     oldready = ready;
     return(0);

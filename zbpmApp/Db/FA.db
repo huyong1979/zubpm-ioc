@@ -6,7 +6,7 @@ record(stringin, "$(P){BPM:$(NO)}FA:Hdr:Buff-Wfm:T") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:Hdr:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 0 40")
+    field(INP , "@psc$(NO) 55 0 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -14,7 +14,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:Hdr:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:Cnt:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 4 40")
+    field(INP , "@psc$(NO) 55 4 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -22,16 +22,15 @@ record(waveform,"$(P){BPM:$(NO)}FA:Cnt:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:A:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 8 40")
+    field(INP , "@psc$(NO) 55 8 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
-#    field(FLNK,"$(P){BPM:$(NO)}FA-Sub")
 }
 
 record(waveform,"$(P){BPM:$(NO)}FA:B:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 12 40")
+    field(INP , "@psc$(NO) 55 12 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -39,7 +38,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:B:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:C:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 16 40")
+    field(INP , "@psc$(NO) 55 16 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -47,7 +46,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:C:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:D:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 20 40")
+    field(INP , "@psc$(NO) 55 20 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -55,7 +54,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:D:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:RSVD:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 24 40")
+    field(INP , "@psc$(NO) 55 24 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -63,7 +62,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:RSVD:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:S:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 28 40")
+    field(INP , "@psc$(NO) 55 28 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -71,7 +70,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:S:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:X:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 32 40")
+    field(INP , "@psc$(NO) 55 32 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -79,7 +78,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:X:Buff-Wfm") {
 
 record(waveform,"$(P){BPM:$(NO)}FA:Y:Buff-Wfm") {
     field(DTYP, "PSC Block I32 In")
-    field(INP , "@aie_wfm_rx_$(NO) 55 36 40")
+    field(INP , "@psc$(NO) 55 36 40")
     field(SCAN,"I/O Intr")
     field(FTVL,"DOUBLE")
     field(NELM,"$(FA_LEN)")
@@ -88,7 +87,7 @@ record(waveform,"$(P){BPM:$(NO)}FA:Y:Buff-Wfm") {
 record(longin, "$(P){BPM:$(NO)}DMA:FALen-I") {
     field(DESC, "FA Samples Per Trigger")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 80")
+    field(INP , "@psc$(NO) 30 80")
     field(SCAN,"I/O Intr")
     field(EGU,  "Samples")
 }
@@ -96,17 +95,17 @@ record(longin, "$(P){BPM:$(NO)}DMA:FALen-I") {
 record(bi, "$(P){BPM:$(NO)}DMA:FAbusy-I") {
     field(DESC, "DMA FA Active")
     field(DTYP, "PSC Reg")
-    field(INP , "@Rx$(NO) 30 92")
+    field(INP , "@psc$(NO) 30 92")
     field(MASK, "0x1")
     field(SCAN,"I/O Intr")
-    field(ZNAM,"Rdy")
-    field(ONAM,"Busy")
+    field(ZNAM,"Busy")
+    field(ONAM,"Rdy")
 }
 
 record(longout, "$(P){BPM:$(NO)}DMA:FALen-SP") {
     field(DESC, "Number of FA samples per trigger")
     field(DTYP, "PSC Single I32")
-    field(OUT , "@aie_tx_$(NO) 1 64")
+    field(OUT , "@psc$(NO) 1 64")
     field(HOPR,"100000")
     field(LOPR,"100")
     field(PINI, "YES")
@@ -176,6 +175,20 @@ record(waveform,"$(P){BPM:$(NO)}FA:Time-Wfm"){
   field(DESC,"History")
   field(NELM,"20000")
   field(FTVL,"DOUBLE")
+}
+
+record(waveform,"$(P){BPM:$(NO)}FA:Average-Wfm"){
+  field(DTYP,"Soft Channel")
+  field(DESC,"Averages for A,B,C,D,S,X,Y")
+  field(NELM,"10")
+  field(FTVL,"FLOAT")
+}
+
+record(waveform,"$(P){BPM:$(NO)}FA:Sigma-Wfm"){
+  field(DTYP,"Soft Channel")
+  field(DESC,"Sigmas for A,B,C,D,S,X,Y")
+  field(NELM,"10")
+  field(FTVL,"FLOAT")
 }
 
 record(waveform,"$(P){BPM:$(NO)}FA:FFT-Wfm"){
@@ -340,24 +353,10 @@ record(ai,"$(P){BPM:$(NO)}FA:FFT:0Hz-I"){
   field(UDF,0)
 }
 
-record(longin,"$(P){BPM:$(NO)}FA:LoopTime-I"){
-  field(DTYP,"Soft Channel")
-  field(DESC,"FA code execution time")
-  field(VAL,0)
-  field(EGU,"us")
-  field(UDF,0)
-}
-
-record(longin,"$(P){BPM:$(NO)}FA:LoopCount-I"){
-  field(DTYP,"Soft Channel")
-  field(DESC,"FA code loop counter")
-  field(VAL,0)
-  field(UDF,0)
-}
-
 record(aSub,"$(P){BPM:$(NO)}FA-Sub"){
     field(SNAM,"FAsub")
     field(SCAN,".1 second")
+    field(FLNK,"$(P){BPM:$(NO)}FAstat-Sub")
 
     field(FTA,  "DOUBLE")
     field(NOA,  "$(FA_LEN)")
@@ -403,46 +402,92 @@ record(aSub,"$(P){BPM:$(NO)}FA-Sub"){
     field(NOVB,  "1")
     field(OUTB, "$(P){BPM:$(NO)}FA:WfmOff-SP PP")
     field(FTVC,  "FLOAT")
+    field(NOVC,  "10000")
+    field(OUTC, "$(P){BPM:$(NO)}FA:A-Wfm PP")
+    field(FTVD,  "FLOAT")
+    field(NOVD,  "10000")
+    field(OUTD, "$(P){BPM:$(NO)}FA:B-Wfm PP")
+    field(FTVE,  "FLOAT")
+    field(NOVE,  "10000")
+    field(OUTE, "$(P){BPM:$(NO)}FA:C-Wfm PP")
+    field(FTVF,  "FLOAT")
+    field(NOVF,  "10000")
+    field(OUTF, "$(P){BPM:$(NO)}FA:D-Wfm PP")
+    field(FTVG,  "FLOAT")
+    field(NOVG,  "10000")
+    field(OUTG, "$(P){BPM:$(NO)}FA:Sum-Wfm PP")
+    field(FTVH,  "FLOAT")
+    field(NOVH,  "10000")
+    field(OUTH, "$(P){BPM:$(NO)}FA:X-Wfm PP")
+    field(FTVI,  "FLOAT")
+    field(NOVI,  "10000")
+    field(OUTI, "$(P){BPM:$(NO)}FA:Y-Wfm PP")
+    field(FTVJ,  "FLOAT")
+    field(NOVJ,  "10000")
+    field(OUTJ, "$(P){BPM:$(NO)}FA:Time-Wfm PP")
+    field(FTVK,  "CHAR")
+    field(NOVK,  "40")
+    field(OUTK, "$(P){BPM:$(NO)}EVR:TrigDate-I PP")
+    field(FTVL,  "FLOAT")
+    field(NOVL,  "10")
+    field(OUTL, "$(P){BPM:$(NO)}FA:Average-Wfm PP")
+    field(FTVM,  "FLOAT")
+    field(NOVM,  "10")
+    field(OUTM, "$(P){BPM:$(NO)}FA:Sigma-Wfm PP")
+
+}
+
+record(aSub,"$(P){BPM:$(NO)}FAstat-Sub"){
+    field(SNAM,"FAstat")
+
+
+    field(FTA,  "FLOAT")
+    field(NOA,  "10")
+    field(INPA, "$(P){BPM:$(NO)}FA:Average-Wfm")
+    field(FTB,  "FLOAT")
+    field(NOB,  "10")
+    field(INPB, "$(P){BPM:$(NO)}FA:Sigma-Wfm")
+
+    field(FTVA,  "FLOAT")
+    field(NOVA,  "1")
+    field(OUTA, "$(P){BPM:$(NO)}FA:Aavg-I PP")
+    field(FTVB,  "FLOAT")
+    field(NOVB,  "1")
+    field(OUTB, "$(P){BPM:$(NO)}FA:Bavg-I PP")
+    field(FTVC,  "FLOAT")
     field(NOVC,  "1")
-    field(OUTC, "$(P){BPM:$(NO)}FA:Aavg-I PP")
+    field(OUTC, "$(P){BPM:$(NO)}FA:Cavg-I PP")
     field(FTVD,  "FLOAT")
     field(NOVD,  "1")
-    field(OUTD, "$(P){BPM:$(NO)}FA:Bavg-I PP")
+    field(OUTD, "$(P){BPM:$(NO)}FA:Davg-I PP")
     field(FTVE,  "FLOAT")
     field(NOVE,  "1")
-    field(OUTE, "$(P){BPM:$(NO)}FA:Cavg-I PP")
+    field(OUTE, "$(P){BPM:$(NO)}FA:Savg-I PP")
     field(FTVF,  "FLOAT")
     field(NOVF,  "1")
-    field(OUTF, "$(P){BPM:$(NO)}FA:Davg-I PP")
+    field(OUTF, "$(P){BPM:$(NO)}FA:Xavg-I PP")
     field(FTVG,  "FLOAT")
     field(NOVG,  "1")
-    field(OUTG, "$(P){BPM:$(NO)}FA:Savg-I PP")
+    field(OUTG, "$(P){BPM:$(NO)}FA:Yavg-I PP")
     field(FTVH,  "FLOAT")
     field(NOVH,  "1")
-    field(OUTH, "$(P){BPM:$(NO)}FA:Xavg-I PP")
+    field(OUTH, "$(P){BPM:$(NO)}FA:Asig-I PP")
     field(FTVI,  "FLOAT")
     field(NOVI,  "1")
-    field(OUTI, "$(P){BPM:$(NO)}FA:Yavg-I PP")
+    field(OUTI, "$(P){BPM:$(NO)}FA:Bsig-I PP")
     field(FTVJ,  "FLOAT")
     field(NOVJ,  "1")
-    field(OUTJ, "$(P){BPM:$(NO)}FA:Asig-I PP")
+    field(OUTJ, "$(P){BPM:$(NO)}FA:Csig-I PP")
     field(FTVK,  "FLOAT")
     field(NOVK,  "1")
-    field(OUTK, "$(P){BPM:$(NO)}FA:Bsig-I PP")
+    field(OUTK, "$(P){BPM:$(NO)}FA:Dsig-I PP")
     field(FTVL,  "FLOAT")
     field(NOVL,  "1")
-    field(OUTL, "$(P){BPM:$(NO)}FA:Csig-I PP")
+    field(OUTL, "$(P){BPM:$(NO)}FA:Ssig-I PP")
     field(FTVM,  "FLOAT")
     field(NOVM,  "1")
-    field(OUTM, "$(P){BPM:$(NO)}FA:Dsig-I PP")
+    field(OUTM, "$(P){BPM:$(NO)}FA:Xsig-I PP")
     field(FTVN,  "FLOAT")
     field(NOVN,  "1")
-    field(OUTN, "$(P){BPM:$(NO)}FA:Ssig-I PP")
-    field(FTVO,  "FLOAT")
-    field(NOVO,  "1")
-    field(OUTO, "$(P){BPM:$(NO)}FA:Xsig-I PP")
-    field(FTVP,  "FLOAT")
-    field(NOVP,  "1")
-    field(OUTP, "$(P){BPM:$(NO)}FA:Ysig-I PP")
-
+    field(OUTN, "$(P){BPM:$(NO)}FA:Ysig-I PP")
 }

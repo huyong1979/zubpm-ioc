@@ -21,6 +21,7 @@ DB += Live.db
 DB += SA.db
 DB += TBT.db
 DB += zubpm.db
+DB += lstats.db
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add

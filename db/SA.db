@@ -163,10 +163,13 @@ record(longin, "$(P){BPM:$(NO)}TS-I") {
     info("TimeNSScale", "8")
 }
 
-record(stringout, "$(P){BPM:$(NO)}SA:TrigDate-I"){
-   field(DTYP,"Soft Channel")
-   field(VAL,"No Clock")
+record(waveform, "$(P){BPM:$(NO)}SA:TrigDate-I"){
+    field(DTYP,"Soft Channel")
+    field(DESC,"Date String")
+    field(NELM,"40")
+    field(FTVL,"CHAR")
 }
+
 ##########################################################
 #
 #  PVs for SA statistics and History
@@ -274,6 +277,20 @@ record(ai,"$(P){BPM:$(NO)}SA:Ysig-I"){
   field(UDF,0)
 }
 
+record(waveform,"$(P){BPM:$(NO)}SA:Average-Wfm"){
+  field(DTYP,"Soft Channel")
+  field(DESC,"Averages for A,B,C,D,S,X,Y")
+  field(NELM,"10")
+  field(FTVL,"FLOAT")
+}
+
+record(waveform,"$(P){BPM:$(NO)}SA:Sigma-Wfm"){
+  field(DTYP,"Soft Channel")
+  field(DESC,"Sigmas for A,B,C,D,S,X,Y")
+  field(NELM,"10")
+  field(FTVL,"FLOAT")
+}
+
 
 record(waveform,"$(P){BPM:$(NO)}SA:A-Wfm"){
   field(DTYP,"Soft Channel")
@@ -359,23 +376,9 @@ record(waveform,"$(P){BPM:$(NO)}SA:YM-Wfm"){
   field(FTVL,"FLOAT")
 }
 
-record(longin,"$(P){BPM:$(NO)}SA:LoopTime-I"){
-  field(DTYP,"Soft Channel")
-  field(DESC,"SA code execution time")
-  field(VAL,0)
-  field(EGU,"us")
-  field(UDF,0)
-}
-
-record(longin,"$(P){BPM:$(NO)}SA:LoopCount-I"){
-  field(DTYP,"Soft Channel")
-  field(DESC,"SA code loop counter")
-  field(VAL,0)
-  field(UDF,0)
-}
-
 record(aSub,"$(P){BPM:$(NO)}SA-Sub"){
     field(SNAM,"SAsub")
+    field(FLNK,"$(P){BPM:$(NO)}SAstat-Sub")
 
     field(FTA,  "DOUBLE")
     field(NOA,  "1")
@@ -418,6 +421,67 @@ record(aSub,"$(P){BPM:$(NO)}SA-Sub"){
     field(INPM, "$(P){BPM:$(NO)}TS:NS-I")
 
     field(FTVA,  "FLOAT")
+    field(NOVA,  "10000")
+    field(OUTA, "$(P){BPM:$(NO)}SA:A-Wfm PP")
+    field(FTVB,  "FLOAT")
+    field(NOVB,  "10000")
+    field(OUTB, "$(P){BPM:$(NO)}SA:B-Wfm PP")
+    field(FTVC,  "FLOAT")
+    field(NOVC,  "10000")
+    field(OUTC, "$(P){BPM:$(NO)}SA:C-Wfm PP")
+    field(FTVD,  "FLOAT")
+    field(NOVD,  "10000")
+    field(OUTD, "$(P){BPM:$(NO)}SA:D-Wfm PP")
+    field(FTVE,  "FLOAT")
+    field(NOVE,  "10000")
+    field(OUTE, "$(P){BPM:$(NO)}SA:S-Wfm PP")
+    field(FTVF,  "FLOAT")
+    field(NOVF,  "10000")
+    field(OUTF, "$(P){BPM:$(NO)}SA:X-Wfm PP")
+    field(FTVG,  "FLOAT")
+    field(NOVG,  "10000")
+    field(OUTG, "$(P){BPM:$(NO)}SA:Y-Wfm PP")
+    field(FTVH,  "FLOAT")
+    field(NOVH,  "10000")
+    field(OUTH, "$(P){BPM:$(NO)}SA:Time-Wfm PP")
+    field(FTVI,  "FLOAT")
+    field(NOVI,  "100")
+    field(OUTI, "$(P){BPM:$(NO)}SA:XM-Wfm PP")
+    field(FTVJ,  "FLOAT")
+    field(NOVJ,  "100")
+    field(OUTJ, "$(P){BPM:$(NO)}SA:YM-Wfm PP")
+    field(FTVK,  "FLOAT")
+    field(NOVK,  "10")
+    field(OUTK, "$(P){BPM:$(NO)}SA:XS-Wfm PP")
+    field(FTVL,  "FLOAT")
+    field(NOVL,  "10")
+    field(OUTL, "$(P){BPM:$(NO)}SA:YS-Wfm PP")
+
+    field(FTVM,  "FLOAT")
+    field(NOVM,  "10")
+    field(OUTM, "$(P){BPM:$(NO)}SA:Average-Wfm PP")
+    field(FTVN,  "FLOAT")
+    field(NOVN,  "10")
+    field(OUTN, "$(P){BPM:$(NO)}SA:Sigma-Wfm PP")
+    field(FTVO,  "LONG")
+    field(NOVO,  "1")
+    field(OUTO, "$(P){BPM:$(NO)}SA:Reset-SP PP")
+    field(FTVP,  "CHAR")
+    field(NOVP,  "40")
+    field(OUTP, "$(P){BPM:$(NO)}SA:TrigDate-I PP")
+}
+
+record(aSub,"$(P){BPM:$(NO)}SAstat-Sub"){
+    field(SNAM,"SAstat")
+
+    field(FTA,  "FLOAT")
+    field(NOA,  "10")
+    field(INPA, "$(P){BPM:$(NO)}SA:Average-Wfm")
+    field(FTB,  "FLOAT")
+    field(NOB,  "10")
+    field(INPB, "$(P){BPM:$(NO)}SA:Sigma-Wfm")
+
+    field(FTVA,  "FLOAT")
     field(NOVA,  "1")
     field(OUTA, "$(P){BPM:$(NO)}SA:Aavg-I PP")
     field(FTVB,  "FLOAT")
@@ -439,40 +503,24 @@ record(aSub,"$(P){BPM:$(NO)}SA-Sub"){
     field(NOVG,  "1")
     field(OUTG, "$(P){BPM:$(NO)}SA:Yavg-I PP")
     field(FTVH,  "FLOAT")
-    field(NOVH,  "100")
-    field(OUTH, "$(P){BPM:$(NO)}SA:XM-Wfm PP")
+    field(NOVH,  "1")
+    field(OUTH, "$(P){BPM:$(NO)}SA:Asig-I PP")
     field(FTVI,  "FLOAT")
-    field(NOVI,  "100")
-    field(OUTI, "$(P){BPM:$(NO)}SA:YM-Wfm PP")
+    field(NOVI,  "1")
+    field(OUTI, "$(P){BPM:$(NO)}SA:Bsig-I PP")
     field(FTVJ,  "FLOAT")
-    field(NOVJ,  "10")
-    field(OUTJ, "$(P){BPM:$(NO)}SA:XS-Wfm PP")
+    field(NOVJ,  "1")
+    field(OUTJ, "$(P){BPM:$(NO)}SA:Csig-I PP")
     field(FTVK,  "FLOAT")
-    field(NOVK,  "10")
-    field(OUTK, "$(P){BPM:$(NO)}SA:YS-Wfm PP")
+    field(NOVK,  "1")
+    field(OUTK, "$(P){BPM:$(NO)}SA:Dsig-I PP")
     field(FTVL,  "FLOAT")
     field(NOVL,  "1")
-    field(OUTL, "$(P){BPM:$(NO)}SA:Asig-I PP")
+    field(OUTL, "$(P){BPM:$(NO)}SA:Ssig-I PP")
     field(FTVM,  "FLOAT")
     field(NOVM,  "1")
-    field(OUTM, "$(P){BPM:$(NO)}SA:Bsig-I PP")
+    field(OUTM, "$(P){BPM:$(NO)}SA:Xsig-I PP")
     field(FTVN,  "FLOAT")
     field(NOVN,  "1")
-    field(OUTN, "$(P){BPM:$(NO)}SA:Csig-I PP")
-    field(FTVO,  "FLOAT")
-    field(NOVO,  "1")
-    field(OUTO, "$(P){BPM:$(NO)}SA:Dsig-I PP")
-    field(FTVP,  "FLOAT")
-    field(NOVP,  "1")
-    field(OUTP, "$(P){BPM:$(NO)}SA:Ssig-I PP")
-    field(FTVQ,  "FLOAT")
-    field(NOVQ,  "1")
-    field(OUTQ, "$(P){BPM:$(NO)}SA:Xsig-I PP")
-    field(FTVR,  "FLOAT")
-    field(NOVR,  "1")
-    field(OUTR, "$(P){BPM:$(NO)}SA:Ysig-I PP")
-    field(FTVS,  "LONG")
-    field(NOVS,  "1")
-    field(OUTS, "$(P){BPM:$(NO)}SA:Reset-SP PP")
+    field(OUTN, "$(P){BPM:$(NO)}SA:Ysig-I PP")
 }
-
