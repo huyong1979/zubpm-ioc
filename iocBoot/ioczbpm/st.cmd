@@ -13,9 +13,9 @@ epicsEnvSet("PX","lab-BI{BPM:2}")
 epicsEnvSet("IOCNAME", "lab-BI")
 epicsEnvSet("ALIVELEN", "8000");   # ADC Live length
 epicsEnvSet("TLIVELEN", "8000");   # ADC Live length
-epicsEnvSet("ALEN",100000);        # ADC DMA Length
-epicsEnvSet("TLEN", "100000");      # TbT Length
-epicsEnvSet("FLEN", "100000");      # FA Length
+epicsEnvSet("ALEN",500000);        # ADC DMA Length
+epicsEnvSet("TLEN", "500000");      # TbT Length
+epicsEnvSet("FLEN", "500000");      # FA Length
 
 ## Register all support components
 dbLoadDatabase "../../dbd/zbpm.dbd"

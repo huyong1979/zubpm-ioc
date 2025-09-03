@@ -15,7 +15,7 @@
 #include <registryFunction.h>
 #include <epicsExport.h>
 
-#define BUFMAX 100000
+#define BUFMAX 500000
 
 static int ADCsub(aSubRecord *precord) {
 
