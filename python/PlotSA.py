@@ -20,7 +20,7 @@ TM=[]
 t=0
 N=0
 
-with open('SALogRFSWon2.txt', 'r') as file:
+with open('SALog9_10.txt', 'r') as file:
     for line in file:
         line = line.strip()
         Dat = [float(l) for l in line.split(",")]
@@ -38,13 +38,13 @@ with open('SALogRFSWon2.txt', 'r') as file:
            TAC.append(Dat[10])
            TBD.append(Dat[11])
            TM.append(t/3600.0)
-           t = t + 0.25
+           t = t + 1
            N = N+1
 
-    TM = TM[N-230401:N-1]
+#    TM = TM[N-230401:N-1]
     TM = np.subtract(TM,TM[0])
-    X = X[N-230401:N-1]
-    Y = Y[N-230401:N-1]
+#    X = X[N-230401:N-1]
+#    Y = Y[N-230401:N-1]
     Xsig = np.std(X)
     Ysig = np.std(Y)
     f,ax = plt.subplots(2,1,figsize=(8,8))
@@ -62,10 +62,10 @@ with open('SALogRFSWon2.txt', 'r') as file:
     dstr = "Ysig = "+str(round(Ysig,3))+"um"
     ax[1].text(0.05, 0.95,dstr,transform=ax[1].transAxes, fontsize=12,verticalalignment='top', bbox=props)
 
-    TA = TA[N-230401:N-1]
-    TC = TC[N-230401:N-1]
-    TAC = TAC[N-230401:N-1]
-    TBD = TBD[N-230401:N-1]
+#    TA = TA[N-230401:N-1]
+#    TC = TC[N-230401:N-1]
+#    TAC = TAC[N-230401:N-1]
+#    TBD = TBD[N-230401:N-1]
 
     px = np.polyfit(TA,X,1)
     py = np.polyfit(TA,Y,1)
@@ -117,6 +117,28 @@ with open('SALogRFSWon2.txt', 'r') as file:
     ax[1].grid(True)
     ax[1].set_xlabel("Time (Hours)")
     ax[1].set_ylabel("Temperature Difference Between TA and TC (C)")
+    
+    B0 = TB[0]
+    D0 = TD[0]
+    dT = abs(B0-D0)
+    TBo = np.subtract(TB,B0)
+    TDo = np.subtract(TD,D0)
+    
+    f,ax = plt.subplots(2,1,figsize=(8,8))
+    ax[0].plot(TM,TBo)
+    ax[0].plot(TM,TDo)
+    ax[0].grid(True)
+    ax[0].set_xlabel("Time (Hours)")
+    ax[0].set_ylabel("Thermistors B and D (C)")
+    dstr = "TB[0] = "+str(round(B0,2))+"C\nTD[0]  = "+str(round(D0,2))+"C\ndT = "+str(round(dT,2))+"C"
+    ax[0].text(0.75, 0.95,dstr,transform=ax[0].transAxes, fontsize=12,verticalalignment='top', bbox=props) 
+    
+    TBmD = np.subtract(TB,TD)
+    
+    ax[1].plot(TM,TBmD)
+    ax[1].grid(True)
+    ax[1].set_xlabel("Time (Hours)")
+    ax[1].set_ylabel("Temperature Difference Between TB and TD (C)")
     
     AC0 = TAC[0]
     BD0 = TBD[0]

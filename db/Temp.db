@@ -126,7 +126,6 @@ record(ai, "$(P){BPM:$(NO)}Temp:FpgaDie-I") {
     field(LSV,"MINOR")
 }
 
-
 record(ai, "$(P){BPM:$(NO)}Temp:DfeRegSense1-I") {
     field(DESC, "DFE Regulator Temp1 read")
     field(DTYP, "PSC Reg F32")
@@ -184,7 +183,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:DfeRegSense3-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:PwrMgmt-I") {
     field(DESC, "LTC2977 Pwr Mgmt Chip Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 32 124")
+    field(INP , "@psc$(NO) 32 280")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -202,7 +201,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:PwrMgmt-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:D-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 33 0")
+    field(INP , "@psc$(NO) 32 328")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -220,7 +219,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:D-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:A-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 33 4")
+    field(INP , "@psc$(NO) 32 332")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -238,7 +237,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:A-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:C-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 33 8")
+    field(INP , "@psc$(NO) 32 336")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -256,7 +255,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:C-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:AC-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 33 12")
+    field(INP , "@psc$(NO) 32 340")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -274,7 +273,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:AC-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:BD-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 33 16")
+    field(INP , "@psc$(NO) 32 344")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -292,7 +291,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:BD-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:B-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@psc$(NO) 33 20")
+    field(INP , "@psc$(NO) 32 324")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -579,6 +578,10 @@ record(aSub,"$(P){BPM:$(NO)}Tony-Sub"){
     field(FTVR,  "FLOAT")
     field(NOVR,  "101")
     field(OUTR, "$(P){BPM:$(NO)}Temp:Fit:Pos-Wfm PP")
+    field(FTVS,  "LONG")
+    field(NOVS,  "1")
+    field(OUTS, "$(P){BPM:$(NO)}Temp:Reset-SP PP")
+
 }
 
 

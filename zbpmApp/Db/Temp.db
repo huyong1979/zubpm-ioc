@@ -1,7 +1,7 @@
 record(ai, "$(P){BPM:$(NO)}Temp:DfeSense0-I") {
     field(DESC, "DFE Temp0 read")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 4")
+    field(INP , "@psc$(NO) 32 4")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -20,7 +20,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:DfeSense0-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:DfeSense1-I") {
     field(DESC, "DFE Temp1 read")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 8")
+    field(INP , "@psc$(NO) 32 8")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -38,7 +38,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:DfeSense1-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:DfeSense2-I") {
     field(DESC, "DFE Temp2 read")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 12")
+    field(INP , "@psc$(NO) 32 12")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -57,7 +57,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:DfeSense2-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:DfeSense3-I") {
     field(DESC, "DFE Temp3 read")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 16")
+    field(INP , "@psc$(NO) 32 16")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -75,7 +75,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:DfeSense3-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:AfeSense0-I") {
     field(DESC, "AFE Temp0 read")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 20")
+    field(INP , "@psc$(NO) 32 20")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -93,7 +93,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:AfeSense0-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:AfeSense1-I") {
     field(DESC, "AFE Temp1 read")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 24")
+    field(INP , "@psc$(NO) 32 24")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -111,7 +111,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:AfeSense1-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:FpgaDie-I") {
     field(DESC, "FPGA Die Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 28")
+    field(INP , "@psc$(NO) 32 28")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -129,7 +129,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:FpgaDie-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:DfeRegSense1-I") {
     field(DESC, "DFE Regulator Temp1 read")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 112")
+    field(INP , "@psc$(NO) 32 112")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -147,7 +147,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:DfeRegSense1-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:DfeRegSense2-I") {
     field(DESC, "DFE Regulator Temp2 read")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 116")
+    field(INP , "@psc$(NO) 32 116")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -165,7 +165,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:DfeRegSense2-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:DfeRegSense3-I") {
     field(DESC, "DFE Regulator Temp3 read")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 120")
+    field(INP , "@psc$(NO) 32 120")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -183,7 +183,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:DfeRegSense3-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:PwrMgmt-I") {
     field(DESC, "LTC2977 Pwr Mgmt Chip Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 280")
+    field(INP , "@psc$(NO) 32 280")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -201,7 +201,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:PwrMgmt-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:D-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 328")
+    field(INP , "@psc$(NO) 32 328")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -219,7 +219,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:D-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:A-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 332")
+    field(INP , "@psc$(NO) 32 332")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -237,7 +237,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:A-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:C-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 336")
+    field(INP , "@psc$(NO) 32 336")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -255,7 +255,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:C-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:AC-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 340")
+    field(INP , "@psc$(NO) 32 340")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -273,7 +273,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:AC-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:BD-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 344")
+    field(INP , "@psc$(NO) 32 344")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -291,7 +291,7 @@ record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:BD-I") {
 record(ai, "$(P){BPM:$(NO)}Temp:Thermistor:B-I") {
     field(DESC, "PID Thermistor Temperature")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 324")
+    field(INP , "@psc$(NO) 32 324")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -578,6 +578,10 @@ record(aSub,"$(P){BPM:$(NO)}Tony-Sub"){
     field(FTVR,  "FLOAT")
     field(NOVR,  "101")
     field(OUTR, "$(P){BPM:$(NO)}Temp:Fit:Pos-Wfm PP")
+    field(FTVS,  "LONG")
+    field(NOVS,  "1")
+    field(OUTS, "$(P){BPM:$(NO)}Temp:Reset-SP PP")
+
 }
 
 

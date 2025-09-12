@@ -15,7 +15,7 @@ PVs.append("lab-BI{BPM:2}Temp:Thermistor:D-I")
 PVs.append("lab-BI{BPM:2}Temp:Thermistor:AC-I")
 PVs.append("lab-BI{BPM:2}Temp:Thermistor:BD-I")
 
-f = open("SALog.txt","w")
+f = open("SALog9_10.txt","w")
 
 while True:
    Dat = caget(PVs)

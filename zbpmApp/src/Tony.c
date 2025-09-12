@@ -69,6 +69,13 @@ static long Tony(aSubRecord *precord) {
 
     printf("%5.3f %5.3f %5.3f %5.3f\n",A,B,C,D);
 //    printf("%d %d %d\n",length,decimate,reset);
+    if(reset==1){
+        printf("Resetting Temp History...\n");
+        topIndx = 0;
+        Count = 0;
+        reset = 0;
+        *(int *)precord->vals = reset;
+    }
 
     if(A>0){
         Abuff[topIndx] = (float)A;
