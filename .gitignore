@@ -9,6 +9,7 @@
 /include/
 /lib/
 /templates/
+/db
 
 # Local configuration files
 /configure/*.local

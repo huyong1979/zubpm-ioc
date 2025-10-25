@@ -1,7 +1,7 @@
 record(ai, "$(P){BPM:$(NO)}Pwr:VinV-I") {
     field(DESC, "Input Voltage")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 40")
+    field(INP , "@psc$(NO) 32 40")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -18,7 +18,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:VinV-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:VinI-I") {
     field(DESC, "Input Voltage")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 44")
+    field(INP , "@psc$(NO) 32 44")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -35,7 +35,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:VinI-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V3_3V-I") {
     field(DESC, "3.3V Voltage")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 48")
+    field(INP , "@psc$(NO) 32 48")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -52,7 +52,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V3_3V-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V3_3I-I") {
     field(DESC, "3.3V Current")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 52")
+    field(INP , "@psc$(NO) 32 52")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -69,7 +69,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V3_3I-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V2_5V-I") {
     field(DESC, "2.5V Voltage")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 56")
+    field(INP , "@psc$(NO) 32 56")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -86,7 +86,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V2_5V-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V2_5I-I") {
     field(DESC, "2.5V Current")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 60")
+    field(INP , "@psc$(NO) 32 60")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -103,7 +103,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V2_5I-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V1_8V-I") {
     field(DESC, "1.8V Voltage")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 64")
+    field(INP , "@psc$(NO) 32 64")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -120,7 +120,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V1_8V-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V1_8I-I") {
     field(DESC, "1.8V Current")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 68")
+    field(INP , "@psc$(NO) 32 68")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -137,7 +137,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V1_8I-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V1_2DDRV-I") {
     field(DESC, "1.2V DDR Voltage")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 72")
+    field(INP , "@psc$(NO) 32 72")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -154,7 +154,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V1_2DDRV-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V1_2DDRI-I") {
     field(DESC, "1.2V DDR Current")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 76")
+    field(INP , "@psc$(NO) 32 76")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -171,7 +171,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V1_2DDRI-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V0_85V-I") {
     field(DESC, "0.85V DDR Voltage")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 80")
+    field(INP , "@psc$(NO) 32 80")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -188,7 +188,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V0_85V-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V0_85I-I") {
     field(DESC, "0.85V Current")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 84")
+    field(INP , "@psc$(NO) 32 84")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -205,7 +205,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V0_85I-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V2_5MGTV-I") {
     field(DESC, "2.5MGTV Voltage")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 88")
+    field(INP , "@psc$(NO) 32 88")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -222,7 +222,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V2_5MGTV-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V2_5MGTI-I") {
     field(DESC, "2.5MGTV Current")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 92")
+    field(INP , "@psc$(NO) 32 92")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -239,7 +239,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V2_5MGTI-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V1_2MGTV-I") {
     field(DESC, "1.2V MGT Voltage")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 96")
+    field(INP , "@psc$(NO) 32 96")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -256,7 +256,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V1_2MGTV-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V1_2MGTI-I") {
     field(DESC, "1.2V MGT Current")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 100")
+    field(INP , "@psc$(NO) 32 100")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -273,7 +273,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V1_2MGTI-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V0_9MGTV-I") {
     field(DESC, "0.9V MGT Voltage")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 104")
+    field(INP , "@psc$(NO) 32 104")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
@@ -290,7 +290,7 @@ record(ai, "$(P){BPM:$(NO)}Pwr:V0_9MGTV-I") {
 record(ai, "$(P){BPM:$(NO)}Pwr:V0_9MGTI-I") {
     field(DESC, "0.9V MGT Current")
     field(DTYP, "PSC Reg F32")
-    field(INP , "@Rx$(NO) 32 108")
+    field(INP , "@psc$(NO) 32 108")
     field(LINR,"LINEAR")
     field(PREC,"3")
     field(SCAN,"I/O Intr")
