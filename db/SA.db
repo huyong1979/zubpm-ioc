@@ -137,7 +137,7 @@ record(longin, "$(P){BPM:$(NO)}Cnt:Trig-I") {
     field(INP , "@psc$(NO) 31 0")
     field(SCAN,"I/O Intr")
     field(EGU,  "Cnt")
-    field(FLNK,"$(P){BPM:$(NO)}SA-Sub")
+    field(FLNK,"$(P){BPM:$(NO)}SA-Sub.PROC")
 }
 
 
@@ -378,7 +378,7 @@ record(waveform,"$(P){BPM:$(NO)}SA:YM-Wfm"){
 
 record(aSub,"$(P){BPM:$(NO)}SA-Sub"){
     field(SNAM,"SAsub")
-    field(FLNK,"$(P){BPM:$(NO)}SAstat-Sub")
+    field(FLNK,"$(P){BPM:$(NO)}SAstat-Sub.PROC")
 
     field(FTA,  "DOUBLE")
     field(NOA,  "1")

@@ -107,7 +107,7 @@ record(aSub,"$(P){BPM:$(NO)}FFT:SA-Sub"){
     field(SNAM,"SAselect")
     field(SCAN,"1 second")
     field(PINI, "YES")
-    field(FLNK,"$(P){BPM:$(NO)}FFT:FA-Sub")
+    field(FLNK,"$(P){BPM:$(NO)}FFT:FA-Sub.PROC")
 
     field(FTA,  "LONG")
     field(NOA,  "1")
@@ -147,7 +147,7 @@ record(aSub,"$(P){BPM:$(NO)}FFT:FA-Sub"){
     field(SNAM,"FAselect")
     field(SCAN,"1 second")
     field(PINI, "YES")
-    field(FLNK,"$(P){BPM:$(NO)}FFT:TBT-Sub")
+    field(FLNK,"$(P){BPM:$(NO)}FFT:TBT-Sub.PROC")
 
     field(FTA,  "LONG")
     field(NOA,  "1")
@@ -187,7 +187,7 @@ record(aSub,"$(P){BPM:$(NO)}FFT:FA-Sub"){
 record(aSub,"$(P){BPM:$(NO)}FFT:TBT-Sub"){
     field(SNAM,"TBTselect")
     field(PINI, "YES")
-    field(FLNK,"$(P){BPM:$(NO)}FFT:ADC-Sub")
+    field(FLNK,"$(P){BPM:$(NO)}FFT:ADC-Sub.PROC")
 
     field(FTA,  "LONG")
     field(NOA,  "1")
@@ -227,7 +227,7 @@ record(aSub,"$(P){BPM:$(NO)}FFT:ADC-Sub"){
     field(SNAM,"ADCselect")
     field(SCAN,"Passive")
     field(PINI, "YES")
-    field(FLNK,"$(P){BPM:$(NO)}FFT-Sub")
+    field(FLNK,"$(P){BPM:$(NO)}FFT-Sub.PROC")
 
     field(FTA,  "LONG")
     field(NOA,  "1")

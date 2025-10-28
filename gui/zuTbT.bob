@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-08-08 08:12:46 by diag-->
+<!--Saved on 2025-10-27 14:46:18 by caracapp-->
 <display version="2.0.0">
   <name>zuTbT</name>
   <width>1200</width>
@@ -65,6 +65,7 @@
       <x>5</x>
       <y>105</y>
       <width>182</width>
+      <format>6</format>
       <precision>0</precision>
       <horizontal_alignment>1</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
@@ -619,9 +620,9 @@
       <name>Action Button_42</name>
       <actions>
         <action type="write_pv">
+          <description>$(P){BPM:$(NO)}Trig:Strig-SP</description>
           <pv_name>$(P){BPM:$(NO)}Trig:Strig-SP</pv_name>
           <value>Trig</value>
-          <description>$(P){BPM:$(NO)}Trig:Strig-SP</description>
         </action>
       </actions>
       <text>Soft Trig</text>
@@ -917,7 +918,7 @@
             </font>
           </title_font>
           <scale_font>
-            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            <font name="Default" family="Sans" style="REGULAR" size="14.0">
             </font>
           </scale_font>
           <visible>true</visible>
@@ -935,7 +936,7 @@
               </font>
             </title_font>
             <scale_font>
-              <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+              <font name="Default" family="Sans" style="REGULAR" size="14.0">
               </font>
             </scale_font>
             <on_right>false</on_right>
@@ -1031,7 +1032,7 @@
             </font>
           </title_font>
           <scale_font>
-            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            <font name="Default" family="Sans" style="REGULAR" size="14.0">
             </font>
           </scale_font>
           <visible>true</visible>
@@ -1049,7 +1050,7 @@
               </font>
             </title_font>
             <scale_font>
-              <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+              <font name="Default" family="Sans" style="REGULAR" size="14.0">
               </font>
             </scale_font>
             <on_right>false</on_right>
@@ -1132,7 +1133,7 @@
             </font>
           </title_font>
           <scale_font>
-            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            <font name="Default" family="Sans" style="REGULAR" size="14.0">
             </font>
           </scale_font>
           <visible>true</visible>
@@ -1150,7 +1151,7 @@
               </font>
             </title_font>
             <scale_font>
-              <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+              <font name="Default" family="Sans" style="REGULAR" size="14.0">
               </font>
             </scale_font>
             <on_right>false</on_right>
@@ -1233,7 +1234,7 @@
             </font>
           </title_font>
           <scale_font>
-            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            <font name="Default" family="Sans" style="REGULAR" size="14.0">
             </font>
           </scale_font>
           <visible>true</visible>
@@ -1251,7 +1252,7 @@
               </font>
             </title_font>
             <scale_font>
-              <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+              <font name="Default" family="Sans" style="REGULAR" size="14.0">
               </font>
             </scale_font>
             <on_right>false</on_right>
@@ -1367,7 +1368,7 @@
         </font>
       </title_font>
       <scale_font>
-        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        <font name="Default" family="Sans" style="REGULAR" size="14.0">
         </font>
       </scale_font>
       <visible>true</visible>
@@ -1385,7 +1386,7 @@
           </font>
         </title_font>
         <scale_font>
-          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          <font name="Default" family="Sans" style="REGULAR" size="14.0">
           </font>
         </scale_font>
         <on_right>false</on_right>
@@ -1623,7 +1624,7 @@
         </font>
       </title_font>
       <scale_font>
-        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        <font name="Default" family="Sans" style="REGULAR" size="14.0">
         </font>
       </scale_font>
       <visible>true</visible>
@@ -1641,7 +1642,7 @@
           </font>
         </title_font>
         <scale_font>
-          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          <font name="Default" family="Sans" style="REGULAR" size="14.0">
           </font>
         </scale_font>
         <on_right>false</on_right>
@@ -1735,7 +1736,7 @@
         </font>
       </title_font>
       <scale_font>
-        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        <font name="Default" family="Sans" style="REGULAR" size="14.0">
         </font>
       </scale_font>
       <visible>true</visible>
@@ -1753,7 +1754,7 @@
           </font>
         </title_font>
         <scale_font>
-          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          <font name="Default" family="Sans" style="REGULAR" size="14.0">
           </font>
         </scale_font>
         <on_right>false</on_right>
@@ -1839,9 +1840,9 @@
         <name>Action Button_40</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuADC.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>ADC</text>
@@ -1888,9 +1889,9 @@
         <name>Action Button_39</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuFFT.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>FFT</text>
@@ -1981,9 +1982,9 @@
         <name>Action Button_41</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuFA.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>FA</text>
@@ -2030,9 +2031,9 @@
         <name>Action Button_28</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuLive.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>Live</text>
@@ -2078,9 +2079,9 @@
         <name>Action Button_26</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuSystem.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>System</text>
@@ -2127,9 +2128,9 @@
         <name>Action Button_27</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuSA.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>SA</text>
@@ -2319,32 +2320,6 @@
       <vertical_alignment>1</vertical_alignment>
       <border_width>1</border_width>
     </widget>
-    <widget type="led" version="2.0.0">
-      <name>LED_10</name>
-      <pv_name>$(P){BPM:$(NO)}DMA:Busy-I</pv_name>
-      <x>142</x>
-      <y>50</y>
-      <width>46</width>
-      <height>30</height>
-      <off_color>
-        <color red="255" green="216" blue="0">
-        </color>
-      </off_color>
-      <on_color>
-        <color red="180" green="255" blue="180">
-        </color>
-      </on_color>
-      <font>
-        <font family="Liberation Sans" style="REGULAR" size="12.0">
-        </font>
-      </font>
-      <line_color>
-        <color name="Text" red="0" green="0" blue="0">
-        </color>
-      </line_color>
-      <square>true</square>
-      <labels_from_pv>true</labels_from_pv>
-    </widget>
     <widget type="label" version="2.0.0">
       <name>Label_145</name>
       <text>Tx</text>
@@ -2363,6 +2338,32 @@
       <horizontal_alignment>1</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
       <border_width>1</border_width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_4</name>
+      <pv_name>$(P){BPM:$(NO)}DMA:Busy-I</pv_name>
+      <x>143</x>
+      <y>50</y>
+      <width>46</width>
+      <height>30</height>
+      <off_color>
+        <color red="180" green="255" blue="180">
+        </color>
+      </off_color>
+      <on_color>
+        <color red="255" green="216" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <line_color>
+        <color name="Text" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <square>true</square>
+      <labels_from_pv>true</labels_from_pv>
     </widget>
   </widget>
   <widget type="group" version="3.0.0">
@@ -2391,9 +2392,9 @@
       <name>Action Button_47</name>
       <actions>
         <action type="open_display">
+          <description>Open Display</description>
           <file>zuTemp.bob</file>
           <target>replace</target>
-          <description>Open Display</description>
         </action>
       </actions>
       <text>Temp</text>
@@ -2482,9 +2483,9 @@
     <name>Action Button_21</name>
     <actions execute_as_one="true">
       <action type="write_pv">
+        <description>WritePV</description>
         <pv_name>$(P){BPM:$(NO)}RFSW:Enable-SP</pv_name>
         <value>1</value>
-        <description>WritePV</description>
       </action>
     </actions>
     <text>X</text>
@@ -2517,9 +2518,9 @@
     <name>Action Button_22</name>
     <actions execute_as_one="true">
       <action type="write_pv">
+        <description>WritePV</description>
         <pv_name>$(P){BPM:$(NO)}RFSW:Enable-SP</pv_name>
         <value>0</value>
-        <description>WritePV</description>
       </action>
     </actions>
     <text>S</text>
@@ -2554,10 +2555,6 @@
     <x>5</x>
     <y>132</y>
     <width>183</width>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -2574,10 +2571,6 @@
     <y>198</y>
     <width>89</width>
     <height>22</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -2594,10 +2587,6 @@
     <y>225</y>
     <width>89</width>
     <height>22</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -2653,9 +2642,9 @@
     <name>Action Button_23</name>
     <actions execute_as_one="true">
       <action type="write_pv">
+        <description>WritePV</description>
         <pv_name>$(P){BPM:$(NO)}RFSW:Enable-SP</pv_name>
         <value>2</value>
-        <description>WritePV</description>
       </action>
     </actions>
     <text>RF</text>

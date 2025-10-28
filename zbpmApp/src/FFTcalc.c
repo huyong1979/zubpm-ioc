@@ -65,7 +65,6 @@ double* floatToDouble(const float *fArray, int length) {
 
 static int FFTcalc(aSubRecord *precord) {
 
-    printf("FFTcalc\n");
     int L=0,i;
     int chan = *(int *)precord->a;
     int stream = *(int *)precord->b;
@@ -163,7 +162,6 @@ static int FFTcalc(aSubRecord *precord) {
             break;
     }
     if(L>0){
-        printf("\nStream=%d  Length=%d\n",stream,L);
         double *FFTin = floatToDouble(Input, L);
         float *FFTout;      
         apply_hanning(FFTin,L);
@@ -174,7 +172,7 @@ static int FFTcalc(aSubRecord *precord) {
         }
         if(maxFFTin>0){
             FFTout = calc_FFT(FFTin,L);
-            printf("unit=%d  chan=%d\n",unit,chan);
+//            printf("unit=%d  chan=%d\n",unit,chan);
             if(unit==1){
                 for(i=0;i<(L/2+1);i++){
                     FFTout[i] = 20.0*log10(FFTout[i]/32767.0);

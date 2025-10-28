@@ -14,8 +14,6 @@
 
 static int ADCselect(aSubRecord *precord) {
 
-    printf("ADCselect\n");
-
     int stream = *(int *)precord->b;
     if(stream==0){
         int chan = *(int *)precord->a;

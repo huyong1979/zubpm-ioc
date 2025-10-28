@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-09-11 14:14:56 by diag-->
+<!--Saved on 2025-09-17 11:26:33 by caracapp-->
 <display version="2.0.0">
   <name>zuTemp</name>
   <width>1200</width>
@@ -65,9 +65,9 @@
         <name>Action Button_40</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuADC.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>ADC</text>
@@ -114,9 +114,9 @@
         <name>Action Button_41</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuFFT.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>FFT</text>
@@ -163,9 +163,9 @@
         <name>Action Button_42</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuTbT.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>TBT</text>
@@ -212,9 +212,9 @@
         <name>Action Button_43</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuFA.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>FA</text>
@@ -261,9 +261,9 @@
         <name>Action Button_44</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuLive.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>Live</text>
@@ -310,9 +310,9 @@
         <name>Action Button_49</name>
         <actions>
           <action type="open_display">
+            <description>Open Display</description>
             <file>zuSA.bob</file>
             <target>replace</target>
-            <description>Open Display</description>
           </action>
         </actions>
         <text>SA</text>
@@ -359,10 +359,6 @@
       <y>5</y>
       <width>89</width>
       <height>30</height>
-      <font>
-        <font family="Sans" style="REGULAR" size="14.0">
-        </font>
-      </font>
       <background_color>
         <color name="Button_Background" red="210" green="210" blue="210">
         </color>
@@ -487,9 +483,9 @@
       <name>Action Button_45</name>
       <actions>
         <action type="open_display">
+          <description>Open Display</description>
           <file>zuSystem.bob</file>
           <target>replace</target>
-          <description>Open Display</description>
         </action>
       </actions>
       <text>System</text>
@@ -650,10 +646,6 @@
     <x>5</x>
     <y>508</y>
     <width>183</width>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -679,19 +671,19 @@
     <name>Action Button_19</name>
     <actions execute_as_one="true">
       <action type="write_pv">
+        <description>WritePV</description>
         <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
         <value>1</value>
-        <description>WritePV</description>
       </action>
       <action type="write_pv">
+        <description>WritePV</description>
         <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
         <value>120</value>
-        <description>WritePV</description>
       </action>
       <action type="write_pv">
+        <description>WritePV</description>
         <pv_name>$(P){BPM:$(NO)}Temp:Reset-SP</pv_name>
         <value>1</value>
-        <description>WritePV</description>
       </action>
     </actions>
     <text>RESET</text>
@@ -719,10 +711,6 @@
     <y>427</y>
     <width>77</width>
     <height>30</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -754,10 +742,6 @@
     <y>462</y>
     <width>77</width>
     <height>30</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -803,10 +787,6 @@
     <x>5</x>
     <y>262</y>
     <width>183</width>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -868,10 +848,6 @@
     <y>322</y>
     <width>77</width>
     <height>30</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -888,10 +864,6 @@
     <y>357</y>
     <width>77</width>
     <height>30</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -908,10 +880,6 @@
     <y>392</y>
     <width>77</width>
     <height>30</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -928,10 +896,6 @@
     <y>287</y>
     <width>77</width>
     <height>30</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -1012,14 +976,14 @@
       <name>Action Button_18</name>
       <actions execute_as_one="true">
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
           <value>57600</value>
-          <description>WritePV</description>
         </action>
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
           <value>4</value>
-          <description>WritePV</description>
         </action>
       </actions>
       <text>16h</text>
@@ -1053,14 +1017,14 @@
       <name>Action Button_10</name>
       <actions execute_as_one="true">
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
           <value>1</value>
-          <description>WritePV</description>
         </action>
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
           <value>60</value>
-          <description>WritePV</description>
         </action>
       </actions>
       <text>1m</text>
@@ -1094,14 +1058,14 @@
       <name>Action Button_11</name>
       <actions execute_as_one="true">
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
           <value>120</value>
-          <description>WritePV</description>
         </action>
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
           <value>1</value>
-          <description>WritePV</description>
         </action>
       </actions>
       <text>2m</text>
@@ -1135,14 +1099,14 @@
       <name>Action Button_12</name>
       <actions execute_as_one="true">
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
           <value>300</value>
-          <description>WritePV</description>
         </action>
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
           <value>1</value>
-          <description>WritePV</description>
         </action>
       </actions>
       <text>5m</text>
@@ -1176,14 +1140,14 @@
       <name>Action Button_13</name>
       <actions execute_as_one="true">
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
           <value>900</value>
-          <description>WritePV</description>
         </action>
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
           <value>1</value>
-          <description>WritePV</description>
         </action>
       </actions>
       <text>15m</text>
@@ -1217,14 +1181,14 @@
       <name>Action Button_14</name>
       <actions execute_as_one="true">
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
           <value>3600</value>
-          <description>WritePV</description>
         </action>
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
           <value>1</value>
-          <description>WritePV</description>
         </action>
       </actions>
       <text>1h</text>
@@ -1258,14 +1222,14 @@
       <name>Action Button_15</name>
       <actions execute_as_one="true">
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
           <value>7200</value>
-          <description>WritePV</description>
         </action>
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
           <value>1</value>
-          <description>WritePV</description>
         </action>
       </actions>
       <text>2h</text>
@@ -1299,14 +1263,14 @@
       <name>Action Button_16</name>
       <actions execute_as_one="true">
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
           <value>14400</value>
-          <description>WritePV</description>
         </action>
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
           <value>1</value>
-          <description>WritePV</description>
         </action>
       </actions>
       <text>4h</text>
@@ -1340,14 +1304,14 @@
       <name>Action Button_17</name>
       <actions execute_as_one="true">
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
           <value>28800</value>
-          <description>WritePV</description>
         </action>
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
           <value>2</value>
-          <description>WritePV</description>
         </action>
       </actions>
       <text>8h</text>
@@ -1381,14 +1345,14 @@
       <name>Action Button_9</name>
       <actions execute_as_one="true">
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
           <value>30</value>
-          <description>WritePV</description>
         </action>
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
           <value>1</value>
-          <description>WritePV</description>
         </action>
       </actions>
       <text>30s</text>
@@ -1422,14 +1386,14 @@
       <name>Action Button_20</name>
       <actions execute_as_one="true">
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Length-I</pv_name>
           <value>115200</value>
-          <description>WritePV</description>
         </action>
         <action type="write_pv">
+          <description>WritePV</description>
           <pv_name>$(P){BPM:$(NO)}Temp:Decimate-I</pv_name>
           <value>8</value>
-          <description>WritePV</description>
         </action>
       </actions>
       <text>32h</text>
@@ -1500,7 +1464,7 @@
         </font>
       </title_font>
       <scale_font>
-        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        <font name="Default" family="Sans" style="REGULAR" size="14.0">
         </font>
       </scale_font>
       <visible>true</visible>
@@ -1518,7 +1482,7 @@
           </font>
         </title_font>
         <scale_font>
-          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          <font name="Default" family="Sans" style="REGULAR" size="14.0">
           </font>
         </scale_font>
         <on_right>false</on_right>
@@ -1589,7 +1553,7 @@
         </font>
       </title_font>
       <scale_font>
-        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        <font name="Default" family="Sans" style="REGULAR" size="14.0">
         </font>
       </scale_font>
       <visible>true</visible>
@@ -1607,7 +1571,7 @@
           </font>
         </title_font>
         <scale_font>
-          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          <font name="Default" family="Sans" style="REGULAR" size="14.0">
           </font>
         </scale_font>
         <on_right>false</on_right>
@@ -1678,7 +1642,7 @@
         </font>
       </title_font>
       <scale_font>
-        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        <font name="Default" family="Sans" style="REGULAR" size="14.0">
         </font>
       </scale_font>
       <visible>true</visible>
@@ -1696,7 +1660,7 @@
           </font>
         </title_font>
         <scale_font>
-          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          <font name="Default" family="Sans" style="REGULAR" size="14.0">
           </font>
         </scale_font>
         <on_right>false</on_right>
@@ -1767,7 +1731,7 @@
         </font>
       </title_font>
       <scale_font>
-        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        <font name="Default" family="Sans" style="REGULAR" size="14.0">
         </font>
       </scale_font>
       <visible>true</visible>
@@ -1785,7 +1749,7 @@
           </font>
         </title_font>
         <scale_font>
-          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          <font name="Default" family="Sans" style="REGULAR" size="14.0">
           </font>
         </scale_font>
         <on_right>false</on_right>
@@ -1861,7 +1825,7 @@
           </font>
         </title_font>
         <scale_font>
-          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          <font name="Default" family="Sans" style="REGULAR" size="14.0">
           </font>
         </scale_font>
         <visible>true</visible>
@@ -1879,7 +1843,7 @@
             </font>
           </title_font>
           <scale_font>
-            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            <font name="Default" family="Sans" style="REGULAR" size="14.0">
             </font>
           </scale_font>
           <on_right>false</on_right>
@@ -1956,7 +1920,7 @@
           </font>
         </title_font>
         <scale_font>
-          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          <font name="Default" family="Sans" style="REGULAR" size="14.0">
           </font>
         </scale_font>
         <visible>true</visible>
@@ -1974,7 +1938,7 @@
             </font>
           </title_font>
           <scale_font>
-            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            <font name="Default" family="Sans" style="REGULAR" size="14.0">
             </font>
           </scale_font>
           <on_right>false</on_right>
@@ -2051,7 +2015,7 @@
           </font>
         </title_font>
         <scale_font>
-          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          <font name="Default" family="Sans" style="REGULAR" size="14.0">
           </font>
         </scale_font>
         <visible>true</visible>
@@ -2069,7 +2033,7 @@
             </font>
           </title_font>
           <scale_font>
-            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            <font name="Default" family="Sans" style="REGULAR" size="14.0">
             </font>
           </scale_font>
           <on_right>false</on_right>
@@ -2149,7 +2113,7 @@
         </font>
       </title_font>
       <scale_font>
-        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        <font name="Default" family="Sans" style="REGULAR" size="14.0">
         </font>
       </scale_font>
       <visible>true</visible>
@@ -2167,7 +2131,7 @@
           </font>
         </title_font>
         <scale_font>
-          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          <font name="Default" family="Sans" style="REGULAR" size="14.0">
           </font>
         </scale_font>
         <on_right>false</on_right>
@@ -2220,10 +2184,6 @@
     <x>5</x>
     <y>653</y>
     <width>183</width>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -2256,10 +2216,6 @@
     <y>713</y>
     <width>65</width>
     <height>30</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -2276,10 +2232,6 @@
     <y>678</y>
     <width>65</width>
     <height>30</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -2328,10 +2280,6 @@
     <y>783</y>
     <width>65</width>
     <height>30</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -2348,10 +2296,6 @@
     <y>748</y>
     <width>65</width>
     <height>30</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -2388,9 +2332,9 @@
       <name>Action Button_50</name>
       <actions>
         <action type="open_display">
+          <description>Open Display</description>
           <file>zuTvsXY.bob</file>
           <target>replace</target>
-          <description>Open Display</description>
         </action>
       </actions>
       <text>Temp vs XY</text>
@@ -2466,9 +2410,9 @@
     <name>Action Button_22</name>
     <actions execute_as_one="true">
       <action type="write_pv">
+        <description>WritePV</description>
         <pv_name>$(P){BPM:$(NO)}RFSW:Enable-SP</pv_name>
         <value>1</value>
-        <description>WritePV</description>
       </action>
     </actions>
     <text>X</text>
@@ -2501,9 +2445,9 @@
     <name>Action Button_23</name>
     <actions execute_as_one="true">
       <action type="write_pv">
+        <description>WritePV</description>
         <pv_name>$(P){BPM:$(NO)}RFSW:Enable-SP</pv_name>
         <value>0</value>
-        <description>WritePV</description>
       </action>
     </actions>
     <text>S</text>
@@ -2538,10 +2482,6 @@
     <x>5</x>
     <y>132</y>
     <width>183</width>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -2558,10 +2498,6 @@
     <y>198</y>
     <width>89</width>
     <height>22</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -2578,10 +2514,6 @@
     <y>225</y>
     <width>89</width>
     <height>22</height>
-    <font>
-      <font family="Sans" style="REGULAR" size="14.0">
-      </font>
-    </font>
     <background_color>
       <color name="Button_Background" red="210" green="210" blue="210">
       </color>
@@ -2637,9 +2569,9 @@
     <name>Action Button_24</name>
     <actions execute_as_one="true">
       <action type="write_pv">
+        <description>WritePV</description>
         <pv_name>$(P){BPM:$(NO)}RFSW:Enable-SP</pv_name>
         <value>2</value>
-        <description>WritePV</description>
       </action>
     </actions>
     <text>RF</text>

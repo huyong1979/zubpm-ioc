@@ -14,8 +14,6 @@
 
 static int TBTselect(aSubRecord *precord) {
 
-    printf("TBTselect\n");
-
     int stream = *(int *)precord->b;
     if(stream==1){
         int chan = *(int *)precord->a;

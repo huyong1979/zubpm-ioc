@@ -13,7 +13,6 @@
 #include <epicsExport.h>
 
 static int FAselect(aSubRecord *precord) {
-    printf("FAselect\n");
 
     int stream = *(int *)precord->b;
     if(stream==2){

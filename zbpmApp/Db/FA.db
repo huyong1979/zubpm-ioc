@@ -98,8 +98,8 @@ record(bi, "$(P){BPM:$(NO)}DMA:FAbusy-I") {
     field(INP , "@psc$(NO) 30 92")
     field(MASK, "0x1")
     field(SCAN,"I/O Intr")
-    field(ZNAM,"Busy")
-    field(ONAM,"Rdy")
+    field(ZNAM,"Rdy")
+    field(ONAM,"Busy")
 }
 
 record(longout, "$(P){BPM:$(NO)}DMA:FALen-SP") {
@@ -112,7 +112,7 @@ record(longout, "$(P){BPM:$(NO)}DMA:FALen-SP") {
     field(VAL, "100")
     field(EGU, "Samples")
     info(autosaveFields, "VAL")
-    field(FLNK, "$(P){BPM:$(NO)}GoRegSingleWrite")
+    field(FLNK, "$(P){BPM:$(NO)}GoRegSingleWrite.PROC")
 }
 
 ############################################################
@@ -356,7 +356,7 @@ record(ai,"$(P){BPM:$(NO)}FA:FFT:0Hz-I"){
 record(aSub,"$(P){BPM:$(NO)}FA-Sub"){
     field(SNAM,"FAsub")
     field(SCAN,".1 second")
-    field(FLNK,"$(P){BPM:$(NO)}FAstat-Sub")
+    field(FLNK,"$(P){BPM:$(NO)}FAstat-Sub.PROC")
 
     field(FTA,  "DOUBLE")
     field(NOA,  "$(FA_LEN)")

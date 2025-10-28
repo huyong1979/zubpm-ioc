@@ -67,7 +67,7 @@ static long Tony(aSubRecord *precord) {
     int sensor = *(int *)precord->l;
     int axis = *(int *)precord->m;
 
-    printf("%5.3f %5.3f %5.3f %5.3f\n",A,B,C,D);
+//    printf("%5.3f %5.3f %5.3f %5.3f\n",A,B,C,D);
 //    printf("%d %d %d\n",length,decimate,reset);
     if(reset==1){
         printf("Resetting Temp History...\n");

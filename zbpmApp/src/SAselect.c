@@ -14,8 +14,6 @@
 
 static int SAselect(aSubRecord *precord) {
 
-    printf("SAselect\n");
-
     int stream = *(int *)precord->b;
     if(stream==3){
         int chan = *(int *)precord->a;
