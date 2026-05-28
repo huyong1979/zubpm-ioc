@@ -8,9 +8,9 @@
 #- everywhere it appears in this file
 
 #< envPaths
-epicsEnvSet("PX","C28dev{BPM:2}")
+epicsEnvSet("PX","lab{BPM:1}")
 
-epicsEnvSet("IOCNAME", "C28dev")
+epicsEnvSet("IOCNAME", "lab")
 epicsEnvSet("ALIVELEN", "8000");   # ADC Live length
 epicsEnvSet("TLIVELEN", "8000");   # ADC Live length
 epicsEnvSet("ALEN",500000);        # ADC DMA Length
@@ -22,31 +22,31 @@ dbLoadDatabase "../../dbd/zbpm.dbd"
 zbpm_registerRecordDeviceDriver(pdbbase) 
 
 # BPM IP address
-epicsEnvSet("ZBPM_IP", "10.0.142.49");  #4030
+epicsEnvSet("ZBPM_IP", "10.0.142.186");  #4030
 
 ## Load record instances
-dbLoadRecords("../../db/zubpm.db", "P=$(IOCNAME), NO=2, ADC_LIVE_WFM_LEN=$(ALIVELEN), ADC_WFM_LEN=$(ALEN), TBT_LIVE_WFM_LEN=$(TLIVELEN), TBT_WFM_LEN=$(TLEN), SAVG_N=100, SAVG_NSAM=100")
-#dbLoadRecords("../../db/Live.db", "P=$(IOCNAME), NO=2, ALIVE=$(ALIVELEN), TLIVE=$(TLIVELEN)")
-dbLoadRecords("../../db/FA.db", "P=$(IOCNAME), NO=2, FA_LEN=$(FLEN)")
-dbLoadRecords("../../db/TBT.db", "P=$(IOCNAME), NO=2, TBT_LEN=$(TLEN)")
-dbLoadRecords("../../db/ADC.db", "P=$(IOCNAME), NO=2, ADC_LEN=$(ALEN)")
-dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=2, S=0, TMP=140, VCC=164, TXB=188, TXP=212, RXP=236")
-dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=2, S=1, TMP=144, VCC=168, TXB=192, TXP=216, RXP=240")
-dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=2, S=2, TMP=148, VCC=172, TXB=196, TXP=220, RXP=244")
-dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=2, S=3, TMP=152, VCC=176, TXB=200, TXP=224, RXP=248")
-dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=2, S=4, TMP=156, VCC=180, TXB=204, TXP=228, RXP=252")
-dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=2, S=5, TMP=160, VCC=184, TXB=208, TXP=232, RXP=256")
-dbLoadRecords("../../db/SA.db", "P=$(IOCNAME), NO=2")
-dbLoadRecords("../../db/Power.db", "P=$(IOCNAME), NO=2")
-dbLoadRecords("../../db/Temp.db", "P=$(IOCNAME), NO=2")
-dbLoadRecords("../../db/FFT.db", "P=$(IOCNAME), NO=2")
-#dbLoadRecords("../../db/lstats.db", "P=$(IOCNAME), NO=2")
+dbLoadRecords("../../db/zubpm.db", "P=$(IOCNAME), NO=1, ADC_LIVE_WFM_LEN=$(ALIVELEN), ADC_WFM_LEN=$(ALEN), TBT_LIVE_WFM_LEN=$(TLIVELEN), TBT_WFM_LEN=$(TLEN), SAVG_N=100, SAVG_NSAM=100")
+#dbLoadRecords("../../db/Live.db", "P=$(IOCNAME), NO=1, ALIVE=$(ALIVELEN), TLIVE=$(TLIVELEN)")
+dbLoadRecords("../../db/FA.db", "P=$(IOCNAME), NO=1, FA_LEN=$(FLEN)")
+dbLoadRecords("../../db/TBT.db", "P=$(IOCNAME), NO=1, TBT_LEN=$(TLEN)")
+dbLoadRecords("../../db/ADC.db", "P=$(IOCNAME), NO=1, ADC_LEN=$(ALEN)")
+dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=1, S=0, TMP=140, VCC=164, TXB=188, TXP=212, RXP=236")
+dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=1, S=1, TMP=144, VCC=168, TXB=192, TXP=216, RXP=240")
+dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=1, S=2, TMP=148, VCC=172, TXB=196, TXP=220, RXP=244")
+dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=1, S=3, TMP=152, VCC=176, TXB=200, TXP=224, RXP=248")
+dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=1, S=4, TMP=156, VCC=180, TXB=204, TXP=228, RXP=252")
+dbLoadRecords("../../db/SFP.db", "P=$(IOCNAME), B=1, S=5, TMP=160, VCC=184, TXB=208, TXP=232, RXP=256")
+dbLoadRecords("../../db/SA.db", "P=$(IOCNAME), NO=1")
+dbLoadRecords("../../db/Power.db", "P=$(IOCNAME), NO=1")
+dbLoadRecords("../../db/Temp.db", "P=$(IOCNAME), NO=1")
+dbLoadRecords("../../db/FFT.db", "P=$(IOCNAME), NO=1")
+#dbLoadRecords("../../db/lstats.db", "P=$(IOCNAME), NO=1")
 
 #####################################################
-var(PSCDebug, 2)  #5 full debug
+var(PSCDebug, 5)  #5 full debug
 
 #bpm1 Create the PSC
-createPSC("psc2", $(ZBPM_IP), 3000, 0)
+createPSC("psc1", $(ZBPM_IP), 3000, 0)
 
 iocInit()
 

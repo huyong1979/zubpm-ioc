@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2025-09-04 11:15:57 by caracapp-->
 <display version="2.0.0">
   <name>zuTop</name>
   <width>1250</width>
@@ -34,7 +33,7 @@
           <description>Open Display</description>
           <file>zuSA.bob</file>
           <macros>
-            <P>lab-BI</P>
+            <P>lab</P>
             <NO>1</NO>
           </macros>
           <target>window</target>
